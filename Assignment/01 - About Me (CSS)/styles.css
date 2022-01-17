@@ -4,5 +4,20 @@
 }
 
 img {
-    border-radius: 75px;
+    border-radius: 70px;
+}
+
+aside {
+    width: 50%;
+    padding-left: 2%;
+    margin-left: 2%;
+    float: right;
+    box-shadow: inset 7px 0 7px -7px green;
+    font-style: italic;
+    font-size: large;
+    color: green;
+}
+
+aside > p {
+    margin: 2%;
 }
