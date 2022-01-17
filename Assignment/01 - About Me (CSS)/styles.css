@@ -1,0 +1,8 @@
+.headerNav, .footerNav {
+    display: inline-block;
+    margin-right: 2%;
+}
+
+img {
+    border-radius: 75px;
+}
