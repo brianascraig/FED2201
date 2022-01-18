@@ -62,3 +62,11 @@ aside > p {
 section p{
     font-weight: bold;
 }
+
+section > h2{
+    color: lightseagreen;
+}
+
+footer{
+    position: sticky;
+}
