@@ -1,7 +1,23 @@
+*{
+    border: 2px solid blue;
+    padding: 3px;
+}
+
 .headerNav, .footerNav {
     display: inline-block;
     margin-right: 2%;
 }
+
+li:hover{
+    color: purple;
+    font-size: larger;
+}
+
+li:nth-child(3) {
+    color: green;
+    font-weight: 700;
+  }
+  
 
 img {
     border-radius: 70px;
@@ -20,4 +36,29 @@ aside {
 
 aside > p {
     margin: 2%;
+}
+
+#imgCaption{
+    font-style: italic;
+}
+
+#highlight{
+    background-color: rgb(238, 238, 98);
+}
+
+#avatar{
+    border: 2px solid yellow;
+}
+
+#title{
+    background-color: thistle;
+}
+
+#quoteBox{
+    background-color: turquoise;
+    font-style: italic;
+}
+
+section p{
+    font-weight: bold;
 }
