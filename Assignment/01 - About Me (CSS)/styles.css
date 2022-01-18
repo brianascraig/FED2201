@@ -70,3 +70,13 @@ section > h2{
 footer{
     position: sticky;
 }
+
+.artistsContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.artistImg{
+    display: flex;
+    flex-direction: column;
+}
