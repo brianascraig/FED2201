@@ -11,22 +11,54 @@
 function getValues(){
     let dividend = prompt("Please enter a dividend: ");
     let divisor = prompt("Please enter a divisor");
-    getRemainder(dividend, divisor);
+    getNumTimesDivided(dividend, divisor);
 }
 
-function getRemainder(dividend, divisor){
-    while (dividend !== divisor){
-        if (divisor === 0){
-            alert("Error: Cannot Divide By Zero")
-            break;
-        }
+function getNumTimesDivided(dividend, divisor){  
+    console.log("inside numt")
+    let numTimesDivided = 0;
+    if (divisor === 0){
+        alert("Error: Cannot Divide By Zero");
+    } else if (dividend !== 0){
+        while(dividend > 0){
+        console.log("inside while")
+      //
+       // 18
+       //18 - 5
+       //13 - 5
+       //8 -5 
         let result = dividend - divisor;
+       // dividend = 13
+       //dividend = 8
+       //dividend = 3
         dividend = result;
-        console.log(dividend)
-        if (dividend === result){
-            let remainder = dividend - divisor;
-            console.log("Result: " + dividend + "; Remainder: " + remainder)
-        }
+        console.log("result: " + result);
+        console.log("dividend: " + dividend);
+        numTimesDivided++
+        console.log("numX= " +numTimesDivided);
+        }  
+        getRemainder(numTimesDivided, dividend);
+    // } else if (){
+
+    // } 
+    }else {
+        getRemainder(numTimesDivided, dividend);
+    }
+    
+    
+}
+
+function getRemainder(numTimesDivided, dividend){
+    console.log("outside while");
+    let remainder = null;
+     if (dividend === 0){
+    console.log("inside if")
+    remainder = 0;
+    console.log("Result: " + numTimesDivided + "; Remainder: " + remainder)
+    } 
+    if (dividend > 0){
+        remainder = dividend;
+        console.log("Result: " + numTimesDivided + "; Remainder: " + remainder)
     }
 }
 
