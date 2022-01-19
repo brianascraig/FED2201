@@ -71,12 +71,12 @@ footer{
     position: sticky;
 }
 
-.artistsContainer{
+.artistsContainer, .contactContainer{
     display: flex;
     flex-direction: row;
 }
 
-.artistImg{
+.artistImg, .contactBlock{
     display: flex;
     flex-direction: column;
 }
