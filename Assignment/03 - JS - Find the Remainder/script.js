@@ -19,6 +19,9 @@ function getNumTimesDivided(dividend, divisor){
     let numTimesDivided = 0;
     if (divisor === 0){
         alert("Error: Cannot Divide By Zero");
+    }else if (dividend < divisor){
+        console.log("Error: There is no remainder. Dividend cannot be less than divisor.");
+        alert("Error: There is no remainder. Dividend cannot be less than divisor.");    
     } else if (dividend !== 0){
         while(dividend > 0){
         console.log("inside while");
@@ -34,14 +37,10 @@ function getNumTimesDivided(dividend, divisor){
        }
     }  
         getRemainder(numTimesDivided, dividend);
-    } else if (dividend < divisor){
-       alert("There is no remainder");
-    } 
+    }
     else {
         getRemainder(numTimesDivided, dividend);
     }
-    
-    
 }
 
 function getRemainder(numTimesDivided, dividend){
