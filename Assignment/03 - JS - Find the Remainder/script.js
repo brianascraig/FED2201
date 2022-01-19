@@ -20,6 +20,7 @@ function getNumTimesDivided(dividend, divisor){
     if (divisor === 0){
         alert("Error: Cannot Divide By Zero");
     } else if (dividend !== 0){
+        // let result = dividend - divisor;
         while(dividend > 0){
         console.log("inside while")
       //
@@ -28,14 +29,21 @@ function getNumTimesDivided(dividend, divisor){
        //13 - 5
        //8 -5 
         let result = dividend - divisor;
-       // dividend = 13
-       //dividend = 8
-       //dividend = 3
+        
         dividend = result;
+        
         console.log("result: " + result);
         console.log("dividend: " + dividend);
         numTimesDivided++
         console.log("numX= " +numTimesDivided);
+        if(result < divisor){
+            getRemainder(numTimesDivided, dividend);
+            break;
+       }
+       // dividend = 13
+       //dividend = 8
+       //dividend = 3
+       
         }  
         getRemainder(numTimesDivided, dividend);
     // } else if (){
@@ -55,8 +63,7 @@ function getRemainder(numTimesDivided, dividend){
     console.log("inside if")
     remainder = 0;
     console.log("Result: " + numTimesDivided + "; Remainder: " + remainder)
-    } 
-    if (dividend > 0){
+    } else if (dividend > 0){
         remainder = dividend;
         console.log("Result: " + numTimesDivided + "; Remainder: " + remainder)
     }
