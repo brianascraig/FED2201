@@ -32,6 +32,7 @@ function getNumTimesDivided(dividend, divisor){
         numTimesDivided++
         console.log("numX= " +numTimesDivided);
         if(result < divisor){
+            //used to avoid negative remainder
             getRemainder(numTimesDivided, dividend);
             break;
        }
