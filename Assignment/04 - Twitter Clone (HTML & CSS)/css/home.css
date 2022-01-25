@@ -1,0 +1,36 @@
+body { 
+    display: flex;
+    flex-direction: row;
+}
+
+.imgCol{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
+}
+
+.homeImg{
+    height: 100%;
+  
+ } 
+
+.homeImgTxt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    width: 155px;
+    height: 78px;
+}
