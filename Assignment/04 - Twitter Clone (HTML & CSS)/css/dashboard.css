@@ -1,0 +1,54 @@
+body{
+    margin: 0 50px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.menuBtns img{
+    display: flex;
+    flex-direction: row;
+    width: 155px;
+    height: 78px;
+}
+
+.menuBtns {
+    border-left: solid 1px #E5E5E5;
+    margin-right: 40px;
+}
+
+.menuBtns button{
+    display: block;
+    margin-bottom: 10px;
+    background-color: #CA7DF9;
+    text-align: center;
+    width: 220px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 25px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.midColumn{
+    width: 598px;
+}
+
+.userAvatar{
+    width: 48px;
+    height: 48px;
+}
+
+.articlePhoto{
+    width: 500px;
+    height: 220px;
+}
