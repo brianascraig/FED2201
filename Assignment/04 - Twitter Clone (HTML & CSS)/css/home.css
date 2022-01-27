@@ -1,91 +1,368 @@
-body { 
-    display: flex;
-    flex-direction: row;
-    background-color: #564592;
-}
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) { 
+    body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    }
+    
+    .imgCol{
+       display: none;
+    }
+    
+    .homeImg{
+        display: none;
+     } 
+    
+    .homeImgTxt{
+     display: none;
+    }
+    
+    .row{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 20px;
+    }
+    
+    .logo{
+        display: flex;
+        flex-direction: row;
+        width: 155px;
+        height: 78px;
+    }
+    
+    h1{
+        background-color: #EDF67D;
+        border-radius: 5px;
+        font-size: 40px;
+        width: 543px;
+        height: 76px;
+    }
+    
+    button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: white;
+        text-align: center;
+        width: 300px;
+        height: 38px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        box-shadow: 0px 5px 5px 0px #000000;
+        border-radius: 5px;
+    }
+    
+    .joinSection{
+        width: fit-content;
+    }
+    
+    .joinSection p{
+        text-align: center;
+        font-size: 18px;
+        color: #E5E5E5;
+    }
+    
+    .signUp h2{
+        font-size: 32px;
+        color: #E5E5E5;
+    }
+    
+    .logIn h2{
+        color: #E5E5E5;
+        font-size: 16px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+ }
 
-.imgCol{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    text-align: center;
-    margin: -10px 0 0 -10px;
-}
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 767.98px) { 
+    body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    }
+    
+    .imgCol{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        text-align: center;
+        margin: -10px 0 0 -10px;
+    }
+    
+    .homeImg{
+        height: 760px;
+      
+     } 
+    
+    .homeImgTxt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        color: white;
+        font-family:'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 64px;
+    }
+    
+    .row{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 20px;
+    }
+    
+    .logo{
+        display: flex;
+        flex-direction: row;
+        width: 155px;
+        height: 78px;
+    }
+    
+    h1{
+        background-color: #EDF67D;
+        border-radius: 5px;
+        font-size: 40px;
+        width: 543px;
+        height: 76px;
+    }
+    
+    button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: white;
+        text-align: center;
+        width: 300px;
+        height: 38px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        box-shadow: 0px 5px 5px 0px #000000;
+        border-radius: 5px;
+    }
+    
+    .joinSection{
+        width: fit-content;
+    }
+    
+    .joinSection p{
+        text-align: center;
+        font-size: 18px;
+        color: #E5E5E5;
+    }
+    
+    .signUp h2{
+        font-size: 32px;
+        color: #E5E5E5;
+    }
+    
+    .logIn h2{
+        color: #E5E5E5;
+        font-size: 16px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+ }
 
-.homeImg{
-    height: 760px;
-  
- } 
+/* // Large devices (desktops, 992px and up) */
+@media (max-width: 991.98px) { 
+    body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    }
+    
+    .imgCol{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        text-align: center;
+        margin: -10px 0 0 -10px;
+    }
+    
+    .homeImg{
+        height: 760px;
+        max-width: 500px;
+      
+     } 
+    
+    .homeImgTxt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        color: white;
+        font-family:'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 64px;
+    }
+    
+    .row{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 20px;
+    }
+    
+    .logo{
+        display: flex;
+        flex-direction: row;
+        width: 155px;
+        height: 78px;
+    }
+    
+    h1{
+        background-color: #EDF67D;
+        border-radius: 5px;
+        font-size: 30px;
+        width: 300px;
+        height: 50px;
+    }
+    
+    button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: white;
+        text-align: center;
+        width: 300px;
+        height: 38px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        box-shadow: 0px 5px 5px 0px #000000;
+        border-radius: 5px;
+    }
+    
+    .joinSection{
+        width: fit-content;
+    }
+    
+    .joinSection p{
+        text-align: center;
+        font-size: 18px;
+        color: #E5E5E5;
+    }
+    
+    .signUp h2{
+        font-size: 32px;
+        color: #E5E5E5;
+    }
+    
+    .logIn h2{
+        color: #E5E5E5;
+        font-size: 16px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+ }
 
-.homeImgTxt{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    color: white;
-    font-family:'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 64px;
-}
-
-.row{
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0 0 20px;
-}
-
-.logo{
-    display: flex;
-    flex-direction: row;
-    width: 155px;
-    height: 78px;
-}
-
-h1{
-    background-color: #EDF67D;
-    border-radius: 5px;
-    font-size: 40px;
-    width: 543px;
-    height: 76px;
-}
-
-button {
-    display: block;
-    margin-bottom: 10px;
-    background-color: white;
-    text-align: center;
-    width: 300px;
-    height: 38px;
-    font-size: 16px;
-    font-weight: bold;
-	position: relative;
-	box-shadow: 0px 5px 5px 0px #000000;
-    border-radius: 5px;
-}
-
-.joinSection{
-    width: fit-content;
-}
-
-.joinSection p{
-    text-align: center;
-    font-size: 18px;
-    color: #E5E5E5;
-}
-
-.signUp h2{
-    font-size: 32px;
-    color: #E5E5E5;
-}
-
-.logIn h2{
-    color: #E5E5E5;
-    font-size: 16px;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-}
-
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1699.98px) { 
+    body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    }
+    
+    .imgCol{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        text-align: center;
+        margin: -10px 0 0 -10px;
+    }
+    
+    .homeImg{
+        height: 760px;
+      
+     } 
+    
+    .homeImgTxt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        color: white;
+        font-family:'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 64px;
+    }
+    
+    .row{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 20px;
+    }
+    
+    .logo{
+        display: flex;
+        flex-direction: row;
+        width: 155px;
+        height: 78px;
+    }
+    
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #EDF67D;
+        border-radius: 5px;
+        font-size: 40px;
+        width: fit-content;
+        height: fit-content;
+        text-align: center;
+        padding: 4px;
+    }
+    
+    button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: white;
+        text-align: center;
+        width: 300px;
+        height: 38px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        box-shadow: 0px 5px 5px 0px #000000;
+        border-radius: 5px;
+    }
+    
+    .joinSection{
+        width: fit-content;
+    }
+    
+    .joinSection p{
+        text-align: center;
+        font-size: 18px;
+        color: #E5E5E5;
+    }
+    
+    .signUp h2{
+        font-size: 32px;
+        color: #E5E5E5;
+    }
+    
+    .logIn h2{
+        color: #E5E5E5;
+        font-size: 16px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+ }
