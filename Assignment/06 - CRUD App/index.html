@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Daily Agenda</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -12,7 +12,7 @@
         <header>
             <h1>Daily Agenda</h1>
         </header>
-        <section>
+        <section class="hidden agendaSection">
             <h2>Agenda</h2>
             <div>
                 <button type="button" class="addEventBtn">Add a new event</button>
@@ -193,6 +193,19 @@
                 </tbody>
             </table>
         </section>
-        <script src="" async defer></script>
+        <section class="hidden formSection">
+            <h2 class="formTitle"></h2>
+            <form action="#" method="post">
+                <label for="time">Time</label>
+                <input type="text" name="time" id="time" value="{}" required>
+                <label for="name">Event name: </label>
+                <input type="text" name="name" id="name" required>
+                <label for="detail">Event Detail</label>
+                <input type="text" name="detail" id="detail" required>
+                <input type="submit">
+            </form>
+        </section>
+        <script src="data.js" async defer></script>
+        <script src="index.js" async defer></script>
     </body>
 </html>
