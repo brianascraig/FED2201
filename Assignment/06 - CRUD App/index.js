@@ -8,7 +8,7 @@ function handleApp(){
     let editBtnId = editBtn.parentNode.id;
     let deleteBtnId = deleteBtn.parentNode.id;
     createBtn.addEventListener("click", displayForm);
-    editBtn.addEventListener("click", updateEvent(editBtnId));
+    editBtn.addEventListener("click", displayUpdateForm(editBtnId));
     deleteBtn.addEventListener("click", deleteEvent(deleteBtnId));
 }
 
@@ -99,12 +99,72 @@ function readContact(id){
     zip.toggleAttribute("hidden");
 }
 
-function updateEvent(id){
+function updateEvent(id, firstName, middleName, lastName, email, address,
+    dob, city, state, zip){
+    let updateContact = contacts.find(contact => contact.id === id);
+    let contactIndex = contacts.indexOf(updateContact);
+    contacts[contactIndex] = {
+        "id" : id,
+        "firstName" : firstName,
+        "middleName" : middleName,
+        "lastName" : lastName,
+        "email" : email,
+        "address" : address,
+        "dob" : dob,
+        "city" : city,
+        "state" : state,
+        "zip" : zip
+    }
+}
 
+function displayUpdateForm(id){
+    let contacts = document.querySelector(".contactSection");
+    let updateForm = document.querySelector(".formUpdateSection");
+    contacts.toggleAttribute("hidden");
+    updateForm.toggleAttribute("hidden");
+    let contactToUpdate = contacts.find(contact => contact.id === id);
+    updateForm.innerHTML(
+        `<form action="#" method="post">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" value="${contactToUpdate.firstName}">
+            <label for="middleName">Middle Name </label>
+            <input type="text" name="middleName" id="middleName" value="${contactToUpdate.middleName}">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" value="${contactToUpdate.lastName}">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="${contactToUpdate.email}">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" value="${contactToUpdate.address}">
+            <label for="DOB">DOB</label>
+            <input type="date" name="DOB" id="DOB" value="${contactToUpdate.dob}">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" value="${contactToUpdate.city}">
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" value="${contactToUpdate.state}">
+            <label for="zip">Zip</label>
+            <input type="text" name="zip" id="zip" value="${contactToUpdate.zip}">
+            <input type="submit">
+        </form>`)
+    updateForm.addEventListener("submit", handleUpdate(id))
+}
+
+function handleUpdate(id){
+    let firstName = document.getElementById("firstName").value;
+    let middleName = document.getElementById("middleName").value;
+    let lastName = document.getElementById("lastName").value; 
+    let email = document.getElementById("email").value;
+    let address = document.getElementById("address").value;
+    let dob = document.getElementById("dob").value; 
+    let city = document.getElementById("city").value;
+    let state = document.getElementById("state").value;
+    let zip = document.getElementById("zip").value; 
+    updateEvent(id, firstName, middleName, lastName, email, address,
+                dob, city, state, zip)
 }
 
 function deleteEvent(id){
-
+    let contactToDelete = document.getElementById(id);
+    contactToDelete.remove();
 }
 
 handleApp();
