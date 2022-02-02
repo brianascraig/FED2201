@@ -3,206 +3,71 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Daily Agenda</title>
+        <title>Address Book</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Daily Agenda</h1>
+            <h1>Address Book</h1>
         </header>
-        <section class="hidden agendaSection">
-            <h2>Agenda</h2>
+        <section class="contactSection">
+            <h2>Address Book</h2>
             <div>
-                <button type="button" class="addEventBtn">Add a new event</button>
+                <button type="button" class="addAddressBtn">Add a new event</button>
+                <button type="button" id="viewContacts">Quick View</button>
             </div>
             <table>
                 <thead>
-                    <th>Today's Events</th>
+                    <th>My Contacts</th>
                 </thead>
-                <tbody>
-                    <tr id="01">
-                        <td class="eventHour">12 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail">View</td>
+                <tbody class="contactsTB">
+                    <tr>
+                        <td class="firstName"></td>
+                        <td class="middleName" hidden></td>
+                        <td class="lastName"></td>
+                        <td class="email" hidden></td>
+                        <td class="address" hidden></td>
+                        <td class="DOB" hidden></td>
+                        <td class="city" hidden></td>
+                        <td class="state" hidden></td>
+                        <td class="zip" hidden></td>
                         <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="02">
-                        <td class="eventHour">1 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="03">
-                        <td class="eventHour">2 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="04">
-                        <td class="eventHour">3 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="05">
-                        <td class="eventHour">4 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="06">
-                        <td class="eventHour">5 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="07">
-                        <td class="eventHour">6 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="08">
-                        <td class="eventHour">7 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="09">
-                        <td class="eventHour">8 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="10">
-                        <td class="eventHour">9 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="11">
-                        <td class="eventHour">10 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="12">
-                        <td class="eventHour">11 am</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="13">
-                        <td class="eventHour">12 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="14">
-                        <td class="eventHour">1 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="15">
-                        <td class="eventHour">2 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="16">
-                        <td class="eventHour">3 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="17">
-                        <td class="eventHour">4 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="18">
-                        <td class="eventHour">5 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="19">
-                        <td class="eventHour">6 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="20">
-                        <td class="eventHour">7 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="21">
-                        <td class="eventHour">8 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="22">
-                        <td class="eventHour">9 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="23">
-                        <td class="eventHour">10 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
-                    </tr>
-                    <tr id="24">
-                        <td class="eventHour">11 pm</td>
-                        <td class="eventName"></td>
-                        <td class="eventDetail"></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>
+                        <td class="delete">Delete</td>     
                     </tr>
                 </tbody>
             </table>
         </section>
-        <section class="hidden formSection">
+        <section class="formSection">
             <h2 class="formTitle"></h2>
             <form action="#" method="post">
-                <label for="time">Time</label>
-                <input type="text" name="time" id="time" value="{}" required>
-                <label for="name">Event name: </label>
-                <input type="text" name="name" id="name" required>
-                <label for="detail">Event Detail</label>
-                <input type="text" name="detail" id="detail" required>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" required>
+                <label for="middleName">Middle Name </label>
+                <input type="text" name="middleName" id="middleName" required>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" required>
+                <label for="DOB">DOB</label>
+                <input type="date" name="DOB" id="DOB" required>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" required>
+                <label for="state">State</label>
+                <input type="text" name="state" id="state" required>
+                <label for="zip">Zip</label>
+                <input type="text" name="zip" id="zip" required>
                 <input type="submit">
+            </form>
+        </section>
+        <section>
+            <h2>Contacts QuickView</h2>
+            <form action="#" >
+                <label for="nameList">Contacts</label>
+                <select name="namesList" id=""></select>
             </form>
         </section>
         <script src="data.js" async defer></script>

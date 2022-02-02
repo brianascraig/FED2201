@@ -1,8 +1,14 @@
-let events = [
+let contacts = [
     {
-        "id" : 01,
-        "name" : "Sleeping",
-        "time" : "12 am",
-        "detail" : "Sleeping til 6am"
+        "id" : 0,
+        "firstName" : "Jane",
+        "middleName" : "May",
+        "lastName" : "Doe",
+        "email" : "jdoe@gmail.com",
+        "address" : "123 Bay St",
+        "dob" : "01/01/1999",
+        "city" : "Atlanta",
+        "state" : "Georgia",
+        "zip" : 30303
     }
 ]
