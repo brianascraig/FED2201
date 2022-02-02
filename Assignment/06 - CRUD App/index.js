@@ -1,15 +1,8 @@
 function handleApp(){
-    // let contacts = document.querySelector(".contactSection");
-    // contacts.toggleAttribute("hidden");
-    let contactsTB = document.querySelector(".contactsTB");
+    let contacts = document.querySelector(".contactSection");
+    contacts.toggleAttribute("hidden");
     let createBtn = document.querySelector(".addAddressBtn");
-    let editBtn = document.querySelector(".edit");
-    let deleteBtn = document.querySelector(".delete");
-    let editBtnId = editBtn.parentNode.id;
-    let deleteBtnId = deleteBtn.parentNode.id;
     createBtn.addEventListener("click", displayForm);
-    editBtn.addEventListener("click", displayUpdateForm(editBtnId));
-    deleteBtn.addEventListener("click", deleteEvent(deleteBtnId));
 }
 
 function displayForm(){
@@ -54,29 +47,7 @@ function createEvent(id, firstName, middleName, lastName, email, address,
         "zip" : zip
     });
     console.log("contacts[id] = " + contacts[id]);
-    loadNewEvent(id);
-}
-
-function loadNewEvent(id){
-    console.log(" loadNewEvent id = " + id);
-    let contactsTB = document.querySelector(".contactsTB");
-    let newContact = contacts.find(contact => contact.id === id);
-    contactsTB.innerHTML(`
-    <tr id=${id}>
-        <td class="firstName">${newContact.firstName}</td>
-        <td class="middleName" hidden>${newContact.middleName}</td>
-        <td class="lastName">${newContact.lastName}</td>
-        <td class="email" hidden>${newContact.email}</td>
-        <td class="address" hidden>${newContact.address}</td>
-        <td class="dob" hidden>${newContact.dob}</td>
-        <td class="city" hidden>${newContact.city}</td>
-        <td class="state" hidden>${newContact.state}</td>
-        <td class="zip" hidden>${newContact.zip}</td>
-        <td class="view" onclick="readContact(${id})">View More</td>
-        <td class="edit">Edit</td>
-        <td class="delete">Delete</td>     
-    </tr>`
-    );
+    updateContactTable();
 }
 
 function readContact(id){
@@ -99,7 +70,7 @@ function readContact(id){
     zip.toggleAttribute("hidden");
 }
 
-function updateEvent(id, firstName, middleName, lastName, email, address,
+function updateContact(id, firstName, middleName, lastName, email, address,
     dob, city, state, zip){
     let updateContact = contacts.find(contact => contact.id === id);
     let contactIndex = contacts.indexOf(updateContact);
@@ -115,7 +86,11 @@ function updateEvent(id, firstName, middleName, lastName, email, address,
         "state" : state,
         "zip" : zip
     }
+    updateContactTable();
+
 }
+
+
 
 function displayUpdateForm(id){
     let contacts = document.querySelector(".contactSection");
@@ -158,13 +133,43 @@ function handleUpdate(id){
     let city = document.getElementById("city").value;
     let state = document.getElementById("state").value;
     let zip = document.getElementById("zip").value; 
-    updateEvent(id, firstName, middleName, lastName, email, address,
+    updateContact(id, firstName, middleName, lastName, email, address,
                 dob, city, state, zip)
 }
 
-function deleteEvent(id){
+function deleteContact(id){
     let contactToDelete = document.getElementById(id);
     contactToDelete.remove();
+    let deleteContact = contacts.find(contact => contact.id === id);
+    let contactIndex = contacts.indexOf(deleteContact);
+    contacts.splice(contactIndex, 1);
 }
+
+function updateContactTable(){
+    let contactsTB = document.querySelector(".contactsTB");
+    while (contactsTB.firstChild){
+        contactsTB.firstChild(remove);
+    }
+    for (const contact of contacts){
+        contactsTB.innerHTML(`
+        <tr id=${contact.id}>
+            <td class="firstName">${contact.firstName}</td>
+            <td class="middleName" hidden>${contact.middleName}</td>
+            <td class="lastName">${contact.lastName}</td>
+            <td class="email" hidden>${contact.email}</td>
+            <td class="address" hidden>${contact.address}</td>
+            <td class="dob" hidden>${contact.dob}</td>
+            <td class="city" hidden>${contact.city}</td>
+            <td class="state" hidden>${contact.state}</td>
+            <td class="zip" hidden>${contact.zip}</td>
+            <td class="view" onclick="readContact(${contact.id})">View More</td>
+            <td class="edit" onclick="displayUpdateForm(${contact.id})">Edit</td>
+            <td class="delete" onclick="deleteContact(${contact.id})">Delete</td>     
+        </tr>`
+     );
+    }
+}
+
+
 
 handleApp();

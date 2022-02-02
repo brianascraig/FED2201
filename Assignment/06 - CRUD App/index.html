@@ -12,7 +12,7 @@
         <header>
             <h1>Address Book</h1>
         </header>
-        <section class="contactSection">
+        <section class="contactSection" hidden>
             <h2>Address Book</h2>
             <div>
                 <button type="button" class="addAddressBtn">Add a new event</button>
@@ -23,24 +23,11 @@
                     <th>My Contacts</th>
                 </thead>
                 <tbody class="contactsTB">
-                    <tr>
-                        <td class="firstName"></td>
-                        <td class="middleName" hidden></td>
-                        <td class="lastName"></td>
-                        <td class="email" hidden></td>
-                        <td class="address" hidden></td>
-                        <td class="DOB" hidden></td>
-                        <td class="city" hidden></td>
-                        <td class="state" hidden></td>
-                        <td class="zip" hidden></td>
-                        <td class="edit">Edit</td>
-                        <td class="delete">Delete</td>     
-                    </tr>
                 </tbody>
             </table>
         </section>
-        <section class="formSection">
-            <h2 class="formTitle"></h2>
+        <section class="formSection" hidden>
+            <h2 class="formTitle">Create New Contact</h2>
             <form action="#" method="post">
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" required>
@@ -63,12 +50,8 @@
                 <input type="submit">
             </form>
         </section>
-        <section>
-            <h2>Contacts QuickView</h2>
-            <form action="#" >
-                <label for="nameList">Contacts</label>
-                <select name="namesList" id=""></select>
-            </form>
+        <section class="formUpdateSection" hidden>
+            <h2 class="formTitle">Update Contact</h2> 
         </section>
         <script src="data.js" async defer></script>
         <script src="index.js" async defer></script>
