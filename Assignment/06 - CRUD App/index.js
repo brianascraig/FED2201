@@ -1,21 +1,21 @@
 function handleApp(){
-    let contacts = document.querySelector(".contactSection");
-    contacts.toggleAttribute("hidden");
     let createBtn = document.querySelector(".addAddressBtn");
     createBtn.addEventListener("click", displayForm);
 }
 
 function displayForm(){
-    console.log("inside display")
-    let contacts = document.querySelector(".contactSection");
+    console.log("inside displayForm")
     let form = document.querySelector(".formSection");
-    contacts.toggleAttribute("hidden");
     form.toggleAttribute("hidden");
     form.addEventListener("submit", handleSubmit)
+    
 }
 
-function handleSubmit(){
-    console.log("inside handlesubmit")
+function handleSubmit(event){
+    event.preventDefault();
+    let form = document.querySelector(".formSection");
+    form.toggleAttribute("hidden");
+    console.log("inside handlesubmit");
     let firstName = document.getElementById("firstName").value;
     let middleName = document.getElementById("middleName").value;
     let lastName = document.getElementById("lastName").value; 
@@ -26,14 +26,21 @@ function handleSubmit(){
     let state = document.getElementById("state").value;
     let zip = document.getElementById("zip").value; 
     let id = Math.floor(Math.random() * 100) + 1;
-    createEvent(id, firstName, middleName, lastName, email, address,
+    console.log("firstname" +firstName);
+    createContact(id, firstName, middleName, lastName, email, address,
                 dob, city, state, zip)
 }
 
-function createEvent(id, firstName, middleName, lastName, email, address,
+function createContact(id, firstName, middleName, lastName, email, address,
     dob, city, state, zip){
         console.log("inside create")
-    console.log("id = " + id);
+        console.log("id createfunc " +id);
+        console.log("firstname createfunc" +firstName);
+        console.log("lastname createfunc" +lastName);
+        console.log("middlename createfunc" +middleName);
+        console.log("dob createfunc" +dob);
+        console.log("state createfunc" +state);
+        console.log("zip" +zip);
     contacts.push({
         "id" : id,
         "firstName" : firstName,
@@ -46,32 +53,37 @@ function createEvent(id, firstName, middleName, lastName, email, address,
         "state" : state,
         "zip" : zip
     });
-    console.log("contacts[id] = " + contacts[id]);
+    contacts.push("test");
+    let newContact = contacts.find(contact => contact.id === id);
+    let contactIndex = contacts.indexOf(newContact);
+    console.log("contacts arr: " + contacts[1].firstName);
+    // console.log("contacts[id] = " + contacts[contactIndex]);
     updateContactTable();
 }
 
 function readContact(id){
     console.log("inside read")
     console.log("id = " + id);
-    let contactToRead = document.getElementById(id);
-    let middleName = contactToRead.classList.contains("middleName");
-    let email = contactToRead.classList.contains("email");
-    let address = contactToRead.classList.contains("address");
-    let dob = contactToRead.classList.contains("dob");
-    let city = contactToRead.classList.contains("city");
-    let state = contactToRead.classList.contains("state");
-    let zip = contactToRead.classList.contains("zip");
-    middleName.toggleAttribute("hidden");
-    email.toggleAttribute("hidden");
-    address.toggleAttribute("hidden");
-    dob.toggleAttribute("hidden");
-    city.toggleAttribute("hidden");
-    state.toggleAttribute("hidden");
-    zip.toggleAttribute("hidden");
+    let quickViewSection = document.querySelector(".quickViewSection");
+    let readContact = contacts.find(contact => contact.id === id);
+    let contactIndex = contacts.indexOf(readContact);
+    quickViewSection.innerHTML += `
+    <tr id=${contacts[contactIndex].id}>
+        <td class="firstName">${contacts[contactIndex].firstName}</td>
+        <td class="middleName">${contacts[contactIndex].middleName}</td>
+        <td class="lastName">${contacts[contactIndex].lastName}</td>
+        <td class="email">${contacts[contactIndex].email}</td>
+        <td class="address">${contacts[contactIndex].address}</td>
+        <td class="dob">${contacts[contactIndex].dob}</td>
+        <td class="city">${contacts[contactIndex].city}</td>
+        <td class="state">${contacts[contactIndex].state}</td>
+        <td class="zip">${contacts[contactIndex].zip}</td>   
+    </tr>`
 }
 
 function updateContact(id, firstName, middleName, lastName, email, address,
     dob, city, state, zip){
+    console.log("inside updateContact func")
     let updateContact = contacts.find(contact => contact.id === id);
     let contactIndex = contacts.indexOf(updateContact);
     contacts[contactIndex] = {
@@ -93,13 +105,13 @@ function updateContact(id, firstName, middleName, lastName, email, address,
 
 
 function displayUpdateForm(id){
-    let contacts = document.querySelector(".contactSection");
     let updateForm = document.querySelector(".formUpdateSection");
-    contacts.toggleAttribute("hidden");
     updateForm.toggleAttribute("hidden");
     let contactToUpdate = contacts.find(contact => contact.id === id);
-    updateForm.innerHTML(
+    updateForm.innerHTML +=
         `<form action="#" method="post">
+            <label for="firstName">Contact Id</label>
+            <input type="text" name="contactId" id="contactId" value="${id}" disabled>
             <label for="firstName">First Name</label>
             <input type="text" name="firstName" id="firstName" value="${contactToUpdate.firstName}">
             <label for="middleName">Middle Name </label>
@@ -119,11 +131,13 @@ function displayUpdateForm(id){
             <label for="zip">Zip</label>
             <input type="text" name="zip" id="zip" value="${contactToUpdate.zip}">
             <input type="submit">
-        </form>`)
-    updateForm.addEventListener("submit", handleUpdate(id))
+        </form>`
+    updateForm.addEventListener("submit", handleUpdate)
 }
 
-function handleUpdate(id){
+function handleUpdate(event){
+    event.preventDefault();
+    let contactId = document.getElementById("contactId").value;
     let firstName = document.getElementById("firstName").value;
     let middleName = document.getElementById("middleName").value;
     let lastName = document.getElementById("lastName").value; 
@@ -133,7 +147,7 @@ function handleUpdate(id){
     let city = document.getElementById("city").value;
     let state = document.getElementById("state").value;
     let zip = document.getElementById("zip").value; 
-    updateContact(id, firstName, middleName, lastName, email, address,
+    updateContact(contactId, firstName, middleName, lastName, email, address,
                 dob, city, state, zip)
 }
 
@@ -143,33 +157,35 @@ function deleteContact(id){
     let deleteContact = contacts.find(contact => contact.id === id);
     let contactIndex = contacts.indexOf(deleteContact);
     contacts.splice(contactIndex, 1);
+    updateContactTable();
 }
 
 function updateContactTable(){
+    console.log("inside updateContactTb");
     let contactsTB = document.querySelector(".contactsTB");
     while (contactsTB.firstChild){
-        contactsTB.firstChild(remove);
+        contactsTB.removeChild(contactsTB.firstChild);
     }
-    for (const contact of contacts){
-        contactsTB.innerHTML(`
-        <tr id=${contact.id}>
-            <td class="firstName">${contact.firstName}</td>
-            <td class="middleName" hidden>${contact.middleName}</td>
-            <td class="lastName">${contact.lastName}</td>
-            <td class="email" hidden>${contact.email}</td>
-            <td class="address" hidden>${contact.address}</td>
-            <td class="dob" hidden>${contact.dob}</td>
-            <td class="city" hidden>${contact.city}</td>
-            <td class="state" hidden>${contact.state}</td>
-            <td class="zip" hidden>${contact.zip}</td>
-            <td class="view" onclick="readContact(${contact.id})">View More</td>
-            <td class="edit" onclick="displayUpdateForm(${contact.id})">Edit</td>
-            <td class="delete" onclick="deleteContact(${contact.id})">Delete</td>     
+    for (let i = 0; i < contacts.length; i++){
+        console.log("inside for loop");
+        console.log("contacts length " + contacts.length)
+        contactsTB.innerHTML += `
+        <tr id=${contacts[i].id}>
+            <td class="firstName">${contacts[i].firstName}</td>
+            <td class="middleName" hidden>${contacts[i].middleName}</td>
+            <td class="lastName">${contacts[i].lastName}</td>
+            <td class="email" hidden>${contacts[i].email}</td>
+            <td class="address" hidden>${contacts[i].address}</td>
+            <td class="dob" hidden>${contacts[i].dob}</td>
+            <td class="city" hidden>${contacts[i].city}</td>
+            <td class="state" hidden>${contacts[i].state}</td>
+            <td class="zip" hidden>${contacts[i].zip}</td>
+            <td class="view" onclick="readContact(${contacts[i].id})">View More</td>
+            <td class="edit" onclick="displayUpdateForm(${contacts[i].id})">Edit</td>
+            <td class="delete" onclick="deleteContact(${contacts[i].id})">Delete</td>     
         </tr>`
-     );
+     ;
     }
 }
-
-
 
 handleApp();

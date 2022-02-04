@@ -11,4 +11,4 @@ let contacts = [
         "state" : "Georgia",
         "zip" : 30303
     }
-]
+];
