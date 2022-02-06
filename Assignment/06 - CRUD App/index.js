@@ -53,7 +53,6 @@ function createContact(id, firstName, middleName, lastName, email, address,
         "state" : state,
         "zip" : zip
     });
-    contacts.push("test");
     let newContact = contacts.find(contact => contact.id === id);
     let contactIndex = contacts.indexOf(newContact);
     console.log("contacts arr: " + contacts[1].firstName);
@@ -81,28 +80,35 @@ function readContact(id){
     </tr>`
 }
 
-function updateContact(id, firstName, middleName, lastName, email, address,
-    dob, city, state, zip){
-    console.log("inside updateContact func")
-    let updateContact = contacts.find(contact => contact.id === id);
-    let contactIndex = contacts.indexOf(updateContact);
-    contacts[contactIndex] = {
-        "id" : id,
-        "firstName" : firstName,
-        "middleName" : middleName,
-        "lastName" : lastName,
-        "email" : email,
-        "address" : address,
-        "dob" : dob,
-        "city" : city,
-        "state" : state,
-        "zip" : zip
-    }
-    updateContactTable();
+// function updateContact(id, firstName, middleName, lastName, email, address,
+    // dob, city, state, zip){
+    // console.log("inside updateContact func id= " + id)
+    // let contactToUpdate = contacts.find(contact => contact.id === id);
+    // contactToUpdate.firstName = firstName;
+    // contactToUpdate.middleName = middleName;
+    // contactToUpdate.lastName = lastName;
+    // contactToUpdate.email = email;
+    // contactToUpdate.address = address;
+    // contactToUpdate.dob = dob;
+    // contactToUpdate.city = city;
+    // contactToUpdate.state = state;
+    // contactToUpdate.zip = zip;
+    // console.log(" update contactIndex " + contactToUpdate.firstName);
+    // contacts[contactIndex] = {
+    //     "id" : id,
+    //     "firstName" : firstName,
+    //     "middleName" : middleName,
+    //     "lastName" : lastName,
+    //     "email" : email,
+    //     "address" : address,
+    //     "dob" : dob,
+    //     "city" : city,
+    //     "state" : state,
+    //     "zip" : zip
+    // }
+    // updateContactTable();
 
-}
-
-
+// }
 
 function displayUpdateForm(id){
     let updateForm = document.querySelector(".formUpdateSection");
@@ -110,10 +116,10 @@ function displayUpdateForm(id){
     let contactToUpdate = contacts.find(contact => contact.id === id);
     updateForm.innerHTML +=
         `<form action="#" method="post">
-            <label for="firstName">Contact Id</label>
+            <label for="contactId">Contact Id</label>
             <input type="text" name="contactId" id="contactId" value="${id}" disabled>
             <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" value="${contactToUpdate.firstName}">
+            <input type="text" name="firstName" id="firstName" placeholder="${contactToUpdate.firstName}">
             <label for="middleName">Middle Name </label>
             <input type="text" name="middleName" id="middleName" value="${contactToUpdate.middleName}">
             <label for="lastName">Last Name</label>
@@ -132,13 +138,14 @@ function displayUpdateForm(id){
             <input type="text" name="zip" id="zip" value="${contactToUpdate.zip}">
             <input type="submit">
         </form>`
-    updateForm.addEventListener("submit", handleUpdate)
+    updateForm.addEventListener("submit", handleUpdate);
 }
 
 function handleUpdate(event){
     event.preventDefault();
     let contactId = document.getElementById("contactId").value;
     let firstName = document.getElementById("firstName").value;
+    console.log("handleUpdate firstName" + firstName);
     let middleName = document.getElementById("middleName").value;
     let lastName = document.getElementById("lastName").value; 
     let email = document.getElementById("email").value;
@@ -147,8 +154,36 @@ function handleUpdate(event){
     let city = document.getElementById("city").value;
     let state = document.getElementById("state").value;
     let zip = document.getElementById("zip").value; 
-    updateContact(contactId, firstName, middleName, lastName, email, address,
-                dob, city, state, zip)
+    console.log("handleUpdate: " + contactId + " " + firstName);
+    let contactUpdate = contacts.find(contact => contact.id == contactId);
+    for (let i = 0; i < contacts.length; i++){
+        if (contacts[i].id == contactId){
+            contacts[i].firstName = firstName;
+            contacts[i].middleName = middleName;
+            contacts[i].lastName = lastName;
+            contacts[i].email = email;
+            contacts[i].address = address;
+            contacts[i].dob = dob;
+            contacts[i].city = city;
+            contacts[i].state = state;
+            contacts[i].zip = zip;
+
+            console.log("contacts[i].firstName = " + contacts[i].firstName);
+        }
+    }
+    // contactUpdate.firstName = firstName;
+    // contactUpdate.middleName = middleName;
+    // contactUpdate.lastName = lastName;
+    // contactUpdate.email = email;
+    // contactUpdate.address = address;
+    // contactUpdate.dob = dob;
+    // contactUpdate.city = city;
+    // contactUpdate.state = state;
+    // contactUpdate.zip = zip;
+    console.log(contacts);
+    // updateContact(contactId, firstName, middleName, lastName, email, address,
+    //             dob, city, state, zip)
+    updateContactTable();
 }
 
 function deleteContact(id){

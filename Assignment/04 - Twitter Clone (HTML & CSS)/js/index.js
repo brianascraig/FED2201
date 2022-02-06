@@ -12,6 +12,7 @@ function handleApp(){
 
 function handleSignInSubmit(event){
     event.preventDefault();
+    
 }
 
 function handleSignUpSubmit(event){
