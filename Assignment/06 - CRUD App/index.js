@@ -1,12 +1,11 @@
 function handleApp(){
-    let createBtn = document.querySelector(".addAddressBtn");
+    let createBtn = document.querySelector(".addContactBtn");
     createBtn.addEventListener("click", displayForm);
     let contactsTBContainer = document.querySelector(".contactsTBContainer");
     contactsTBContainer.toggleAttribute("hidden");
     }
 
 function displayForm(){
-    console.log("inside displayForm")
     let form = document.querySelector(".formSection");
     form.toggleAttribute("hidden");
     form.addEventListener("submit", handleSubmit)
@@ -17,7 +16,6 @@ function handleSubmit(event){
     event.preventDefault();
     let form = document.querySelector(".formSection");
     form.toggleAttribute("hidden");
-    console.log("inside handlesubmit");
     let firstName = document.getElementById("firstName").value;
     let middleName = document.getElementById("middleName").value;
     let lastName = document.getElementById("lastName").value; 
@@ -28,21 +26,12 @@ function handleSubmit(event){
     let state = document.getElementById("state").value;
     let zip = document.getElementById("zip").value; 
     let id = Math.floor(Math.random() * 100) + 1;
-    console.log("firstname" +firstName);
     createContact(id, firstName, middleName, lastName, email, address,
                 dob, city, state, zip)
 }
 
 function createContact(id, firstName, middleName, lastName, email, address,
     dob, city, state, zip){
-        console.log("inside create")
-        console.log("id createfunc " +id);
-        console.log("firstname createfunc" +firstName);
-        console.log("lastname createfunc" +lastName);
-        console.log("middlename createfunc" +middleName);
-        console.log("dob createfunc" +dob);
-        console.log("state createfunc" +state);
-        console.log("zip" +zip);
     contacts.push({
         "id" : id,
         "firstName" : firstName,
@@ -55,16 +44,10 @@ function createContact(id, firstName, middleName, lastName, email, address,
         "state" : state,
         "zip" : zip
     });
-    let newContact = contacts.find(contact => contact.id === id);
-    let contactIndex = contacts.indexOf(newContact);
-    console.log("contacts arr: " + contacts[1].firstName);
-    // console.log("contacts[id] = " + contacts[contactIndex]);
     updateContactTable();
 }
 
 function readContact(id){
-    console.log("inside read")
-    console.log("id = " + id);
     let quickViewSection = document.querySelector(".quickViewSection");
     let quickViewContainer = document.querySelector(".quickViewContainer");  
     let contactsTBContainer = document.querySelector(".contactsTBContainer");
@@ -100,63 +83,52 @@ function closeQuickView(){
 
 }
 
-
-// function updateContact(id, firstName, middleName, lastName, email, address,
-    // dob, city, state, zip){
-    // console.log("inside updateContact func id= " + id)
-    // let contactToUpdate = contacts.find(contact => contact.id === id);
-    // contactToUpdate.firstName = firstName;
-    // contactToUpdate.middleName = middleName;
-    // contactToUpdate.lastName = lastName;
-    // contactToUpdate.email = email;
-    // contactToUpdate.address = address;
-    // contactToUpdate.dob = dob;
-    // contactToUpdate.city = city;
-    // contactToUpdate.state = state;
-    // contactToUpdate.zip = zip;
-    // console.log(" update contactIndex " + contactToUpdate.firstName);
-    // contacts[contactIndex] = {
-    //     "id" : id,
-    //     "firstName" : firstName,
-    //     "middleName" : middleName,
-    //     "lastName" : lastName,
-    //     "email" : email,
-    //     "address" : address,
-    //     "dob" : dob,
-    //     "city" : city,
-    //     "state" : state,
-    //     "zip" : zip
-    // }
-    // updateContactTable();
-
-// }
-
 function displayUpdateForm(id){
     let updateForm = document.querySelector(".formUpdateSection");
     updateForm.toggleAttribute("hidden");
     let contactToUpdate = contacts.find(contact => contact.id === id);
     updateForm.innerHTML +=
         `<form action="#" method="post">
-            <label for="contactIdUpdate">Contact Id</label>
-            <input type="text" name="contactId" id="contactIdUpdate" value="${id}" disabled>
-            <label for="firstNameUpdate">First Name</label>
-            <input type="text" name="firstName" id="firstNameUpdate" value="${contactToUpdate.firstName}">
-            <label for="middleNameUpdate">Middle Name </label>
-            <input type="text" name="middleName" id="middleNameUpdate" value="${contactToUpdate.middleName}">
-            <label for="lastNameUpdate">Last Name</label>
-            <input type="text" name="lastName" id="lastNameUpdate" value="${contactToUpdate.lastName}">
-            <label for="emailUpdate">Email</label>
-            <input type="email" name="email" id="emailUpdate" value="${contactToUpdate.email}">
-            <label for="addressUpdate">Address</label>
-            <input type="text" name="address" id="addressUpdate" value="${contactToUpdate.address}">
-            <label for="dobUpdate">DOB</label>
-            <input type="date" name="dob" id="dobUpdate" value="${contactToUpdate.dob}">
-            <label for="cityUpdate">City</label>
-            <input type="text" name="city" id="cityUpdate" value="${contactToUpdate.city}">
-            <label for="stateUpdate">State</label>
-            <input type="text" name="state" id="stateUpdate" value="${contactToUpdate.state}">
-            <label for="zipUpdate">Zip</label>
-            <input type="text" name="zip" id="zipUpdate" value="${contactToUpdate.zip}">
+            <div class="inputContainer">
+                <label for="contactIdUpdate">Contact Id</label>
+                <input type="text" name="contactId" id="contactIdUpdate" value="${id}" disabled>
+            </div>
+            <div class="inputContainer">
+                <label for="firstNameUpdate">First Name</label>
+                <input type="text" name="firstName" id="firstNameUpdate" value="${contactToUpdate.firstName}">
+            </div>
+            <div class="inputContainer">
+                <label for="middleNameUpdate">Middle Name </label>
+                <input type="text" name="middleName" id="middleNameUpdate" value="${contactToUpdate.middleName}">
+            </div>
+            <div class="inputContainer">
+                <label for="lastNameUpdate">Last Name</label>
+                <input type="text" name="lastName" id="lastNameUpdate" value="${contactToUpdate.lastName}">
+            </div>
+            <div class="inputContainer">
+                <label for="emailUpdate">Email</label>
+                <input type="email" name="email" id="emailUpdate" value="${contactToUpdate.email}">
+            </div>
+            <div class="inputContainer">
+                <label for="addressUpdate">Address</label>
+                <input type="text" name="address" id="addressUpdate" value="${contactToUpdate.address}">
+            </div>
+            <div class="inputContainer">
+                <label for="dobUpdate">DOB</label>
+                <input type="date" name="dob" id="dobUpdate" value="${contactToUpdate.dob}">
+            </div>
+            <div class="inputContainer">
+                <label for="cityUpdate">City</label>
+                <input type="text" name="city" id="cityUpdate" value="${contactToUpdate.city}">
+            </div>
+            <div class="inputContainer">
+                <label for="stateUpdate">State</label>
+                <input type="text" name="state" id="stateUpdate" value="${contactToUpdate.state}">
+            </div>
+            <div class="inputContainer">
+                <label for="zipUpdate">Zip</label>
+                <input type="text" name="zip" id="zipUpdate" value="${contactToUpdate.zip}">
+            </div>
             <input type="submit">
         </form>`
     updateForm.addEventListener("submit", handleUpdate);

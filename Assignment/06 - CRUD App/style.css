@@ -1,3 +1,128 @@
-.hidden{
-    display: none;
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #BDE0FE;
+    font-family: 'Bree Serif', serif;
+}
+
+.addressBookContainer{
+    margin-top: -10px;
+    background-color: white;
+    width: 80%;
+    min-height: 800px;
+    position: relative;
+    box-shadow: 0px 5px 5px 0px #E5E5E5;
+}
+
+header{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #FFAFCC;
+    position: relative;
+    box-shadow: 0px 5px 5px 0px #E5E5E5;
+    padding: 20px;
+    margin-top: -20px;
+}
+
+h1{
+    color: black;
+}
+
+.inputContainer {
+    display: flex;
+    position: relative;
+    box-shadow: 0px 5px 5px 0px #E5E5E5;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    width: 400px;
+    height: 58px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: #747373;
+    align-items: center;
+}
+
+.contactSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+}
+
+input {
+    border: none;
+    margin-left: 30px;
+    height: 40px;
+    font-size: 16px;
+    color: #747373;
+    font-family: 'Bree Serif', serif;
+}
+
+input:active {
+    border: none;
+}
+
+input[type="submit"]{
+    background-color:lightgreen;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+}
+
+.addContactBtn{
+    background-color: #a2d2ff;
+    color: white;
+    text-align: center;
+    height: 50px;
+    font-size: 24px;
+    padding: 10px;
+    width: fit-content; 
+    position: relative;
+    box-shadow: 0px 5px 5px 0px #E5E5E5;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+}
+
+.addContactBtn:hover{
+    background-color: #cdb4db;
+    color: white;
+}
+
+table{
+    width: 400px;
+    background-color: #bde0fe;
+    position: relative;
+    box-shadow: 0px 5px 5px 0px #E5E5E5;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    min-height: 70px;
+    margin-top: 30px;
+    font-family: 'Bree Serif', serif;
+}
+
+table th{
+    font-size: 18px;
+}
+
+table tr {
+    padding: 25px;
+    border: 1px solid #E5E5E5;
+}
+
+tbody tr:hover{
+    background-color: #ffc8dd;
+}
+
+form, .formTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
