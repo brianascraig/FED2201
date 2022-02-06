@@ -1,7 +1,9 @@
 function handleApp(){
     let createBtn = document.querySelector(".addAddressBtn");
     createBtn.addEventListener("click", displayForm);
-}
+    let contactsTBContainer = document.querySelector(".contactsTBContainer");
+    contactsTBContainer.toggleAttribute("hidden");
+    }
 
 function displayForm(){
     console.log("inside displayForm")
@@ -64,6 +66,11 @@ function readContact(id){
     console.log("inside read")
     console.log("id = " + id);
     let quickViewSection = document.querySelector(".quickViewSection");
+    let quickViewContainer = document.querySelector(".quickViewContainer");  
+    let contactsTBContainer = document.querySelector(".contactsTBContainer");
+    contactsTBContainer.toggleAttribute("hidden");
+    quickViewContainer.toggleAttribute("hidden");
+    let closeBtn = document.querySelector(".closeBtn");
     let readContact = contacts.find(contact => contact.id === id);
     let contactIndex = contacts.indexOf(readContact);
     quickViewSection.innerHTML += `
@@ -78,7 +85,21 @@ function readContact(id){
         <td class="state">${contacts[contactIndex].state}</td>
         <td class="zip">${contacts[contactIndex].zip}</td>   
     </tr>`
+    closeBtn.addEventListener("click", closeQuickView)
 }
+
+function closeQuickView(){
+    let quickViewContainer = document.querySelector(".quickViewContainer");
+    quickViewContainer.toggleAttribute("hidden");
+    let quickViewSection = document.querySelector(".quickViewSection");
+    while (quickViewSection.firstChild){
+        quickViewSection.removeChild(quickViewSection.firstChild);
+    }
+    let contactsTBContainer = document.querySelector(".contactsTBContainer");
+    contactsTBContainer.toggleAttribute("hidden");
+
+}
+
 
 // function updateContact(id, firstName, middleName, lastName, email, address,
     // dob, city, state, zip){
