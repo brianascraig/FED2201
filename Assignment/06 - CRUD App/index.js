@@ -116,44 +116,45 @@ function displayUpdateForm(id){
     let contactToUpdate = contacts.find(contact => contact.id === id);
     updateForm.innerHTML +=
         `<form action="#" method="post">
-            <label for="contactId">Contact Id</label>
-            <input type="text" name="contactId" id="contactId" value="${id}" disabled>
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" placeholder="${contactToUpdate.firstName}">
-            <label for="middleName">Middle Name </label>
-            <input type="text" name="middleName" id="middleName" value="${contactToUpdate.middleName}">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" value="${contactToUpdate.lastName}">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="${contactToUpdate.email}">
-            <label for="address">Address</label>
-            <input type="text" name="address" id="address" value="${contactToUpdate.address}">
-            <label for="DOB">DOB</label>
-            <input type="date" name="DOB" id="DOB" value="${contactToUpdate.dob}">
-            <label for="city">City</label>
-            <input type="text" name="city" id="city" value="${contactToUpdate.city}">
-            <label for="state">State</label>
-            <input type="text" name="state" id="state" value="${contactToUpdate.state}">
-            <label for="zip">Zip</label>
-            <input type="text" name="zip" id="zip" value="${contactToUpdate.zip}">
+            <label for="contactIdUpdate">Contact Id</label>
+            <input type="text" name="contactId" id="contactIdUpdate" value="${id}" disabled>
+            <label for="firstNameUpdate">First Name</label>
+            <input type="text" name="firstName" id="firstNameUpdate" value="${contactToUpdate.firstName}">
+            <label for="middleNameUpdate">Middle Name </label>
+            <input type="text" name="middleName" id="middleNameUpdate" value="${contactToUpdate.middleName}">
+            <label for="lastNameUpdate">Last Name</label>
+            <input type="text" name="lastName" id="lastNameUpdate" value="${contactToUpdate.lastName}">
+            <label for="emailUpdate">Email</label>
+            <input type="email" name="email" id="emailUpdate" value="${contactToUpdate.email}">
+            <label for="addressUpdate">Address</label>
+            <input type="text" name="address" id="addressUpdate" value="${contactToUpdate.address}">
+            <label for="dobUpdate">DOB</label>
+            <input type="date" name="dob" id="dobUpdate" value="${contactToUpdate.dob}">
+            <label for="cityUpdate">City</label>
+            <input type="text" name="city" id="cityUpdate" value="${contactToUpdate.city}">
+            <label for="stateUpdate">State</label>
+            <input type="text" name="state" id="stateUpdate" value="${contactToUpdate.state}">
+            <label for="zipUpdate">Zip</label>
+            <input type="text" name="zip" id="zipUpdate" value="${contactToUpdate.zip}">
             <input type="submit">
         </form>`
     updateForm.addEventListener("submit", handleUpdate);
+    
 }
 
 function handleUpdate(event){
     event.preventDefault();
-    let contactId = document.getElementById("contactId").value;
-    let firstName = document.getElementById("firstName").value;
+    let contactId = document.getElementById("contactIdUpdate").value;
+    let firstName = document.getElementById("firstNameUpdate").value;
     console.log("handleUpdate firstName" + firstName);
-    let middleName = document.getElementById("middleName").value;
-    let lastName = document.getElementById("lastName").value; 
-    let email = document.getElementById("email").value;
-    let address = document.getElementById("address").value;
-    let dob = document.getElementById("dob").value; 
-    let city = document.getElementById("city").value;
-    let state = document.getElementById("state").value;
-    let zip = document.getElementById("zip").value; 
+    let middleName = document.getElementById("middleNameUpdate").value;
+    let lastName = document.getElementById("lastNameUpdate").value; 
+    let email = document.getElementById("emailUpdate").value;
+    let address = document.getElementById("addressUpdate").value;
+    let dob = document.getElementById("dobUpdate").value; 
+    let city = document.getElementById("cityUpdate").value;
+    let state = document.getElementById("stateUpdate").value;
+    let zip = document.getElementById("zipUpdate").value; 
     console.log("handleUpdate: " + contactId + " " + firstName);
     let contactUpdate = contacts.find(contact => contact.id == contactId);
     for (let i = 0; i < contacts.length; i++){
@@ -184,6 +185,8 @@ function handleUpdate(event){
     // updateContact(contactId, firstName, middleName, lastName, email, address,
     //             dob, city, state, zip)
     updateContactTable();
+    let updateForm = document.querySelector(".formUpdateSection");
+    updateForm.toggleAttribute("hidden");
 }
 
 function deleteContact(id){
