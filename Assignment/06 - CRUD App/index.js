@@ -139,7 +139,6 @@ function handleUpdate(event){
     event.preventDefault();
     let contactId = document.getElementById("contactIdUpdate").value;
     let firstName = document.getElementById("firstNameUpdate").value;
-    console.log("handleUpdate firstName" + firstName);
     let middleName = document.getElementById("middleNameUpdate").value;
     let lastName = document.getElementById("lastNameUpdate").value; 
     let email = document.getElementById("emailUpdate").value;
@@ -148,8 +147,6 @@ function handleUpdate(event){
     let city = document.getElementById("cityUpdate").value;
     let state = document.getElementById("stateUpdate").value;
     let zip = document.getElementById("zipUpdate").value; 
-    console.log("handleUpdate: " + contactId + " " + firstName);
-    let contactUpdate = contacts.find(contact => contact.id == contactId);
     for (let i = 0; i < contacts.length; i++){
         if (contacts[i].id == contactId){
             contacts[i].firstName = firstName;
@@ -161,22 +158,8 @@ function handleUpdate(event){
             contacts[i].city = city;
             contacts[i].state = state;
             contacts[i].zip = zip;
-
-            console.log("contacts[i].firstName = " + contacts[i].firstName);
         }
     }
-    // contactUpdate.firstName = firstName;
-    // contactUpdate.middleName = middleName;
-    // contactUpdate.lastName = lastName;
-    // contactUpdate.email = email;
-    // contactUpdate.address = address;
-    // contactUpdate.dob = dob;
-    // contactUpdate.city = city;
-    // contactUpdate.state = state;
-    // contactUpdate.zip = zip;
-    console.log(contacts);
-    // updateContact(contactId, firstName, middleName, lastName, email, address,
-    //             dob, city, state, zip)
     updateContactTable();
     let updateForm = document.querySelector(".formUpdateSection");
     updateForm.toggleAttribute("hidden");
@@ -192,16 +175,13 @@ function deleteContact(id){
 }
 
 function updateContactTable(){
-    console.log("inside updateContactTb");
     let contactsTB = document.querySelector(".contactsTB");
     while (contactsTB.firstChild){
         contactsTB.removeChild(contactsTB.firstChild);
     }
     for (let i = 0; i < contacts.length; i++){
-        console.log("inside for loop");
-        console.log("contacts length " + contacts.length)
         contactsTB.innerHTML += `
-        <tr id=${contacts[i].id}>
+        <tr id=${contacts[i].id} class="updateContactTable">
             <td class="firstName">${contacts[i].firstName}</td>
             <td class="middleName" hidden>${contacts[i].middleName}</td>
             <td class="lastName">${contacts[i].lastName}</td>
