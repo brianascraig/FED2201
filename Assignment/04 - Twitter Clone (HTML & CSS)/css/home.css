@@ -1,6 +1,12 @@
 /* // Small devices (landscape phones, up to 576) */
 @media (max-width: 575.98px) { 
-    body { 
+    /* body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    } */
+
+    .homePageSection{
         display: flex;
         flex-direction: row;
         background-color: #564592;
@@ -83,7 +89,13 @@
 
 /* // Medium devices (tablets, 576px and up) */
 @media (max-width: 767.98px) { 
-    body { 
+    /* body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    } */
+
+    .homePageSection{
         display: flex;
         flex-direction: row;
         background-color: #564592;
@@ -174,7 +186,13 @@
 
 /* // Large devices (desktops, 768px and up) */
 @media (max-width: 991.98px) { 
-    body { 
+    /* body { 
+        display: flex;
+        flex-direction: row;
+        background-color: #564592;
+    } */
+
+    .homePageSection{
         display: flex;
         flex-direction: row;
         background-color: #564592;
@@ -271,13 +289,19 @@
 @media (min-width: 992px) { 
     body { 
         display: flex;
+        flex-direction: column;
+        background-color: #564592;
+    }
+
+    .homePageSection{
+        display: flex;
         flex-direction: row;
         background-color: #564592;
     }
     
     .imgCol{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         position: relative;
         text-align: center;
         margin: -10px 0 0 -10px;
