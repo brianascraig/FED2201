@@ -43,28 +43,47 @@ function postNewUser(id, name, email, password) {
 }
 
 function getUserById(id){
-  let user = [];
+  let users = [];
   $.get(`${baseUrl}/users${jsonExt}`, function(data, status){
     console.log("success")
-    // console.log(JSON.parse(data));
-    
-    }).then((data)=>{
-      for ( var obj in data){
-        console.log("inside for");
-        console.log("obj: " + obj);
-        if (obj.id == id){
-          console.log("inside loop");
-          let userId = obj.id;
-          let userName = obj.name;
-          user.push({userId: userId, name: userName
-          })
-          user.push("test");
-        }
-      }
+    }).then((data)=>{ 
+      for (var key in data) {
+        users.push(key);
+    }
       console.log(data);
-      console.log("users arr: " + user);
-  })                 
-}
+      console.log("users arr: " + users); 
+      // console.log(`url= ${baseUrl}/users/${users[0]}${jsonExt}`);
+      for (let i = 0; i < users.length; i++){
+        console.log("inside for getuserby id");
+        $.get(`${baseUrl}/users/${users[i]}${jsonExt}`
+        , function(data, status){
+        console.log("success");
+        }).then((data)=>{
+          console.log("then id" + id)
+          if (id == data.id){
+            let userId = data.id;
+            let userKey = users[i];
+            loadUserDashboard(userId, userKey);
+          }
+      console.log("data.id: " + data.id);
+      console.log("data " + data);
+    })
+  }
+  }) 
+              
+} 
+
+// function getUserById(id, users){
+//   console.log("inside getUserById")
+//   getAllUsers();
+//   this.users = users;
+//   console.log("userList" + this.users);
+  
+  
+    
+//   }
+  
+
 
 function createUserSession(id){
   console.log("inside createUserSession");
