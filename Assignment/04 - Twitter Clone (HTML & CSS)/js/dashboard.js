@@ -1,5 +1,6 @@
-function loadUserDashboard(userId, userKey){
-    // let dashboard = $(".dashboardSection");   
-    console.log("userId" + userId);
+function loadUserDashboard(userKey, userId){
+    // let dashboard = $(".dashboardSection");  
+    console.log("=====INSIDE DASHBOARD====="); 
     console.log("userKey" + userKey);
+    console.log("user Id: " +userId);
 }

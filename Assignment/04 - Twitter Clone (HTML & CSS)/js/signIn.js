@@ -1,22 +1,26 @@
 function displaySignInForm(){
     console.log("inside displaySignInForm");
     let signInForm = $(".signInForm");
-    let signInFormSection = $(".signInFormSection");
-    signInFormSection.toggleAttribute("hidden");
-    signInForm.addEventListener("submit", handleSignInSubmit)
+    // let signInFormSection = $(".signInFormSection");
+    // signInFormSection.toggleAttribute("hidden");
+    signInForm.submit(handleSignInSubmit);
 }
 
-function handleSignUpSubmit(event) {
+function handleSignInSubmit(event) {
     event.preventDefault();
+    console.log("inside handleSignInSubmit")
     let email = $("#emailCurrentUser").val();
-    let password = $("#passwordCurrent").val();
+    let password = $("#passwordCurrentUser").val();
+    console.log("email signinsubmit: " + email);
+    console.log("password signinsubmit" + password);
     getUserByCredentials(email, password);
   }
 
   function getUserByCredentials(email, password){
     let users = [];
+    console.log("inside getUserByCredentials")
     $.get(`${baseUrl}/users${jsonExt}`, function(data, status){
-      console.log("success")
+      console.log("success getUserByCredentials")
       }).then((data)=>{ 
         for (var key in data) {
           users.push(key);
@@ -30,14 +34,13 @@ function handleSignUpSubmit(event) {
           , function(data, status){
           console.log("success");
           }).then((data)=>{
-            console.log("then id" + id)
+            console.log("then key: " + users[i]);
             if (email == data.email && password == data.password){
-              let userId = data.id;
               let userKey = users[i];
-              loadUserDashboard(userId, userKey);
+              let userId = data.id;
+              loadUserDashboard(userKey, userId);
             }
-        console.log("data.id: " + data.id);
-        console.log("data " + data);
+        // console.log("data.id: " + data.id);
       })
     }
     }) 

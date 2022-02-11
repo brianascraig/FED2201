@@ -63,7 +63,7 @@ function getUserById(id){
           if (id == data.id){
             let userId = data.id;
             let userKey = users[i];
-            loadUserDashboard(userId, userKey);
+            loadUserDashboard(userKey, userId);
           }
       console.log("data.id: " + data.id);
       console.log("data " + data);
@@ -73,15 +73,6 @@ function getUserById(id){
               
 } 
 
-// function getUserById(id, users){
-//   console.log("inside getUserById")
-//   getAllUsers();
-//   this.users = users;
-//   console.log("userList" + this.users);
-  
-  
-    
-//   }
   
 
 
