@@ -1,5 +1,6 @@
 function loadUserDashboard(userKey, userId){
-    // let dashboard = $(".dashboardSection"); 
+    let dashboard = $(".dashboardSection"); 
+    let userNameBtn = $(".userNameBtn");
     let createGrapevineForm = $(".createGrapevineForm");
     console.log("=====INSIDE DASHBOARD====="); 
     console.log("userKey" + userKey);
@@ -8,6 +9,7 @@ function loadUserDashboard(userKey, userId){
     displayTrends();
     displayUserInfo(userKey);
     createGrapevineForm.submit(handleGrapevineSubmit);
+    userNameBtn.click(displayLogout);
 }
 
 function displayGrapevines(){
@@ -49,8 +51,7 @@ function displayGrapevines(){
         console.log("data content" + data.content);
       })
     }
-    }) 
-                
+    })                 
 } 
 
 function displayTrends(){
@@ -86,21 +87,27 @@ function displayTrends(){
   } 
 
 function displayUserInfo(userKey){
-    let trendsSection = $(".trendsSection");
+    let userNameBtn = $(".userNameBtn");
         $.get(`${baseUrl}/users/${userKey}${jsonExt}`
         , function(data, status){
         console.log("success");
         }).then((data)=>{
             let name = data.name;
-            trendsSection.append(`
-                <article>
-                    <p>${title}</p>
-                    <p class="trendKeyword">#${hashtag}</p>
-                </article>`)
-        console.log("data.title: " + data.title);
-        console.log("data hashtag" + data.hashtag);
+            userNameBtn.append(`${name}`)
+        console.log("data.name: " + data.name);
       })            
 } 
+
+function displayLogout(){
+  let logoutContainer = $(".logoutContainer");
+  let logoutBtn = $(".logoutBtn")
+  logoutContainer.toggleAttribute("hidden");
+  logoutBtn.click(logoutUserSession);
+}
+
+function logoutUserSession(){
+  
+}
 
 function handleGrapevineSubmit(){
     
