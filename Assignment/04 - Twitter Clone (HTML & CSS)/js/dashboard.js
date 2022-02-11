@@ -102,5 +102,7 @@ function displayUserInfo(userKey){
       })            
 } 
 
-function handleGrapevineSubmit(){}
+function handleGrapevineSubmit(){
+    
+}
 
