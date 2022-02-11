@@ -49,4 +49,37 @@ function displayGrapevines(){
     }
     }) 
                 
+} 
+
+function displayTrends(){
+    let trends = [];
+    let trendsSection = $(".trendsSection");
+    $.get(`${baseUrl}/trends${jsonExt}`, function(data, status){
+      console.log("success")
+      }).then((data)=>{ 
+        for (var key in data) {
+          trends.push(key);
+      }
+        console.log(data);
+        console.log("trends arr: " + trends); 
+        for (let i = 0; i < trends.length; i++){
+          console.log("inside for displayTrends");
+          $.get(`${baseUrl}/trends/${trends[i]}${jsonExt}`
+          , function(data, status){
+          console.log("success");
+          }).then((data)=>{
+            console.log("then id" + id)
+            let title = data.title;
+            let hashtag = data.hashtag; 
+            trendsSection.append(`
+                <article>
+                    <p>${title}</p>
+                    <p class="trendKeyword">#${hashtag}</p>
+                </article>`)
+        console.log("data.title: " + data.title);
+        console.log("data hashtag" + data.hashtag);
+      })
+    }
+    }) 
+                
   } 
