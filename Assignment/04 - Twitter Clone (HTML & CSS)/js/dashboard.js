@@ -1,11 +1,13 @@
 function loadUserDashboard(userKey, userId){
-    // let dashboard = $(".dashboardSection");  
+    // let dashboard = $(".dashboardSection"); 
+    let createGrapevineForm = $(".createGrapevineForm");
     console.log("=====INSIDE DASHBOARD====="); 
     console.log("userKey" + userKey);
     console.log("user Id: " +userId);
     displayGrapevines(userKey);
     displayTrends();
-    displayUserInfo();
+    displayUserInfo(userKey);
+    createGrapevineForm.submit(handleGrapevineSubmit);
 }
 
 function displayGrapevines(){
@@ -68,7 +70,6 @@ function displayTrends(){
           , function(data, status){
           console.log("success");
           }).then((data)=>{
-            console.log("then id" + id)
             let title = data.title;
             let hashtag = data.hashtag; 
             trendsSection.append(`
@@ -83,3 +84,23 @@ function displayTrends(){
     }) 
                 
   } 
+
+function displayUserInfo(userKey){
+    let trendsSection = $(".trendsSection");
+        $.get(`${baseUrl}/users/${userKey}${jsonExt}`
+        , function(data, status){
+        console.log("success");
+        }).then((data)=>{
+            let name = data.name;
+            trendsSection.append(`
+                <article>
+                    <p>${title}</p>
+                    <p class="trendKeyword">#${hashtag}</p>
+                </article>`)
+        console.log("data.title: " + data.title);
+        console.log("data hashtag" + data.hashtag);
+      })            
+} 
+
+function handleGrapevineSubmit(){}
+
