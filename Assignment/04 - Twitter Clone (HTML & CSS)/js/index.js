@@ -1,11 +1,9 @@
 
-
-function handleApp(){
-    let signUpBtn = document.querySelector(".signUpBtn");
-    let signInBtn = document.querySelector(".signInBtn");
-    signUpBtn.addEventListener("click", displaySignUpForm);
+$(document).ready(()=>{
+    let signUpBtn = $(".signUpBtn");
+    let signInBtn = $(".signInBtn");
+    signUpBtn.click(displaySignUpForm);
     // signInBtn.addEventListener("click", displaySignInForm);
-}
+});
 
-handleApp();
 

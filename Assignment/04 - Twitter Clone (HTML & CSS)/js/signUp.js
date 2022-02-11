@@ -1,86 +1,73 @@
-$(document).ready(() => {
-  let baseUrl = "https://twitter-clone-db-f8da3-default-rtdb.firebaseio.com/";
-  $.get(`${baseUrl}.json`, function(data, status){
-    console.log("success")
-    // console.log(JSON.parse(data));
-  }).then((data)=>{
-    console.log(data);
-  })
-  // $.ajax({
-  //   contentType: "application/json; charset=utf-8",
-  //   headers: {
-  //     accept: "application/json; odata=verbose",
-  //   },
-  //   type: "GET",
-  //   url: `${baseUrl}`,
-  //   success: (data) => {
-  //     console.log(data);
-  //   },
-  //   error: (error) => {
-  //     console.log(error);
-  //   },
-  // });
-});
+let baseUrl = "https://twitter-clone-db-f8da3-default-rtdb.firebaseio.com/";
+let jsonExt = ".json";
+// $(document).ready(() => {
+//   let baseUrl = "https://twitter-clone-db-f8da3-default-rtdb.firebaseio.com/";
+//   $.get(`${baseUrl}.json`, function(data, status){
+//     console.log("success")
+//     // console.log(JSON.parse(data));
+//   }).then((data)=>{
+//     console.log(data);
+//   })
+//  
+//   // });
+// });
 
  function displaySignUpForm() {
   console.log("inside displaySignUpForm");
-  let homePage = document.querySelector(".homePageSection");
+  let homePage = $(".homePageSection");
   // homePage.toggleAttribute("hidden");
-  let signUpForm = document.getElementById("signUpForm");
-  let signUpFormSection = document.querySelector(".signInFormSection");
+  let signUpForm = $("#signUpForm");
+  let signUpFormSection = $(".signUpFormSection");
   // signUpFormSection.toggleAttribute("hidden");
-  signUpForm.addEventListener("submit", handleSignUpSubmit);
+  signUpForm.submit(handleSignUpSubmit);
 }
 
 function handleSignUpSubmit(event) {
   event.preventDefault();
-  let name = document.getElementById("name");
-  let email = document.getElementById("email");
-  let password = document.getElementById("password");
-  let signUpSuccess = postNewUser(name, email, password);
-  // if (signUpSuccess) {
-  //   createUserSession();
-  // } else {
-  //   alert("Sign unsuccessful. Please try again.");
-  // }
+  let id = Math.floor(Math.random() * 400) + 1;
+  let name = $("#name").val();
+  let email = $("#email").val();
+  let password = $("#password").val();
+  postNewUser(id, name, email, password);
 }
 
-function postNewUser(name, email, password) {
-  let baseUrl = "https://twitter-clone-db-f8da3-default-rtdb.firebaseio.com/";
-  $.post(`${baseUrl}.json`, function(data, status){
+function postNewUser(id, name, email, password) {
+ $.post(`${baseUrl}/users${jsonExt}`,
+    JSON.stringify({
+      id: id,
+      name: name,
+      email: email,
+      password: password
+  }   ));
+  createUserSession(id);
+}
+
+function getUserById(id){
+  let user = [];
+  $.get(`${baseUrl}/users${jsonExt}`, function(data, status){
     console.log("success")
     // console.log(JSON.parse(data));
-  }).then((data)=>{
-    console.log(data);
-  })
-  //   let postUser = new Promise(function(resolve, reject){
-  //         console.log("working");
-  //      let req = new XMLHttpRequest();
-  //      req.open("POST", `${baseUrl}/users`)
-  //      reject();
-  //      resolve();
-  //  });
-  //  postUser.then(
-  //     //     function
-  //     // )
-
-  //     $.post(`${baseUrl}`,
-  //     {
-  //       name: `${name}`,
-  //       email: `${email}`,
-  //       password: `${password}`
-  //     },
-  //     function(data, status){
-  //       alert("Data: " + data + "\nStatus: " + status);
-  //     });
-  // }
-
-  //Get all
-  // db.collection('users').get().then(querySnapshot => {
-  //   querySnapshot.forEach(doc => {
-  //     console.log(doc);
-  //   })
-  // });
+    
+    }).then((data)=>{
+      for ( var obj in data){
+        console.log("inside for");
+        console.log("obj: " + obj);
+        if (obj.id == id){
+          console.log("inside loop");
+          let userId = obj.id;
+          let userName = obj.name;
+          user.push({userId: userId, name: userName
+          })
+          user.push("test");
+        }
+      }
+      console.log(data);
+      console.log("users arr: " + user);
+  })                 
 }
 
-// export var
+function createUserSession(id){
+  console.log("inside createUserSession");
+  console.log("user id = " + id);
+  getUserById(id);
+}
