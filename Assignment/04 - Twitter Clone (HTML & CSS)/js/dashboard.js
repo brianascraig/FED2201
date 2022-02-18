@@ -23,7 +23,6 @@ function displayGrapevines() {
     }
     console.log(data);
     console.log("grapevines arr: " + grapevines);
-    // console.log(`url= ${baseUrl}/users/${users[0]}${jsonExt}`);
     for (let i = 0; i < grapevines.length; i++) {
       console.log("inside for displayGrapevines");
       $.get(
@@ -32,9 +31,10 @@ function displayGrapevines() {
           console.log("success");
         }
       ).then((data) => {
-        console.log("then id" + id);
-        let userName = data.userName;
-        let content = data.content;
+        let username = data.username;
+        let postContent = data.postContent;
+        let postDate = data.date;
+        let timeElapsed = getTimeElapsed(postDate);
         grapevinesSection.append(`
                 <article>
                     <div>
@@ -43,17 +43,44 @@ function displayGrapevines() {
                             alt="Profile photo avatar"
                             class="userAvatar"
                         />
-                        <span>${userName}</span>
+                        <span>${username}</span>
+                        <span>${timeElapsed}</span>
                     </div>
                     <div>
-                        <p>${content}</p>
+                        <p>${postContent}</p>
                     </div>
                 </article>`);
-        console.log("data.username: " + data.userName);
-        console.log("data content" + data.content);
+        console.log("data.username: " + data.username);
+        console.log("data content" + data.postContent);
       });
     }
   });
+}
+
+function getTimeElapsed(postDate){
+  let postDate = postDate;
+  let postMinute = postDate.getMinutes();
+  let postHour = postDate.getHours();
+  let postDay = postDate.getDay();
+  let postMonth = postDate.getMonth();
+  let postYear = postDate.getFullYear();
+  let dateNow = new Date();
+  let minutesElapsed = dateNow.getMinutes() - postMinute;
+  let hoursElapsed = dateNow.getHours() - postHour;
+  let daysElapsed = dateNow.getDay() - postDay;
+  let monthsElapsed = dateNow.getMonth() - postMonth;
+  let yearsElapsed = dateNow.getFullYear() - postYear;
+  if ((yearsElapsed + monthsElapsed + daysElapsed + hoursElapsed) < 1){
+    return `${minutesElapsed} minutes ago`;
+  } else if ((yearsElapsed + monthsElapsed + daysElapsed) < 1 && hoursElapsed >= 1){
+    return `${hoursElapsed} hours ago`;
+  } else if ((yearsElapsed + monthsElapsed) < 1 && daysElapsed > 1) {
+    return `${daysElapsed} days ago`;
+  } else if (yearsElapsed < 1 && monthsElapsed >= 1){
+    return `${monthsElapsed} months ago`;
+  } else if (yearsElapsed >= 1){
+    return `${yearsElapsed} years ago`;
+  }
 }
 
 function displayTrends() {
@@ -115,13 +142,8 @@ function logoutUserSession() {
 }
 
 function handleGrapevineSubmit(event) {
-  event.preventDefault;
+  event.preventDefault();
   let date = new Date();
-  // let minute = date.getMinutes();
-  // let hour = date.getHours();
-  // let day = date.getDay();
-  // let month = date.getMonth();
-  // let year = date.getFullYear();
   let grapevineId = Math.floor(Math.random() * 1000) + 1;
   let username = $("#usernamePost").val();
   let userKey = $("#userKey").val()
@@ -131,9 +153,24 @@ function handleGrapevineSubmit(event) {
 }
 
 function postToAllGrapevines(date, grapevineId, username, userKey, postContent){
-
+  $.post(`${baseUrl}/grapevines${jsonExt}`,
+  JSON.stringify({
+    grapevineId: grapevineId,
+    username: username,
+    userKey: userKey,
+    postContent: postContent,
+    date: date
+}   ));
 }
 
 function postToUserGrapevines(date, grapevineId, username, userKey, postContent){
-  
+  $.post(`${baseUrl}/grapevines/${userKey}${jsonExt}`,
+  JSON.stringify({
+    grapevineId: grapevineId,
+    username: username,
+    userKey: userKey,
+    postContent: postContent,
+    date: date
+}   ));
+  displayGrapevines();
 }
