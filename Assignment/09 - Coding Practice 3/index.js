@@ -17,7 +17,12 @@ function handleDateFormSubmit(event){
 function calculateDaysUntil(date){
     let futureDate = new Date("01/01/2030");
     let customDate = new Date(date);
-    console.log("date");
+    let timeElapsed = futureDate.getTime() - customDate.getTime();
+    let milliseconds = 1000;
+    let minutes = 60;
+    let seconds = 60;
+    let hours = 24
+    let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
 }
 
 function getDaysFromToday(){
