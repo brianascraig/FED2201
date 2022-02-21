@@ -23,6 +23,7 @@ function calculateDaysUntil(date){
     let seconds = 60;
     let hours = 24
     let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
+    displayDaysFromToday(daysElapsed);
 }
 
 function getDaysFromToday(){
