@@ -1,3 +1,9 @@
 * {
     font-family: 'Signika', sans-serif;
 }
+
+.daysReveal {
+    border: 1px solid gray;
+    padding: 3px;
+    background-color: lightblue;
+}
