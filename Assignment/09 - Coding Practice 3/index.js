@@ -10,7 +10,6 @@ $(document).ready(()=>{
 function handleDateFormSubmit(event){
     event.preventDefault();
     let date = $("#date").val();
-    console.log("date inside handleSubmit" + date);
     calculateDaysUntil(date);
 }
 
@@ -22,7 +21,7 @@ function calculateDaysUntil(date){
     let minutes = 60;
     let seconds = 60;
     let hours = 24
-    let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
+    let daysElapsed = Math.floor(timeElapsed/ (milliseconds * seconds * minutes * hours));
     displayDaysFromToday(daysElapsed);
 }
 
@@ -31,47 +30,42 @@ function getDaysFromToday(){
     let today = date.getTime();
     let futureDate = new Date("01/01/2030");
     let timeElapsed = futureDate.getTime() - today;
+    console.log("timeElapsed inside getDaysFromToday: " + timeElapsed);
     let milliseconds = 1000;
     let minutes = 60;
     let seconds = 60;
-    let hours = 24
-    let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
+    let hours = 24;
+    let daysElapsed = Math.floor(timeElapsed/ (milliseconds * seconds * minutes * hours));
+    console.log("daysElapsed inside getDaysFromToday: " + daysElapsed);
     displayDaysFromToday(daysElapsed);
 }
 
 function displayDaysFromToday(daysElapsed){
+    console.log("inside display")
     let daysReveal = $(".daysReveal");
     daysReveal.append(`${daysElapsed}`);
 }
 
 function handleBetweenDatesFormSubmit(event){
     event.preventDefault();
-    let firstDate = $("#firstDate");
-    let secondDate = $("#secondDate");
+    let firstDate = $("#firstDate").val();
+    let secondDate = $("#secondDate").val();
     calculateDaysBetween(firstDate, secondDate);
 }
 
 function calculateDaysBetween(firstDate, secondDate){
-    let firstDate = new Date(firstDate);
-    let secondDate = new Date(secondDate); 
-    let firstDateYear = firstDate.getFullYear();
-    let secondDateYear = secondDate.getFullYear();
+    firstDate = new Date(firstDate);
+    secondDate = new Date(secondDate); 
     let milliseconds = 1000;
     let minutes = 60;
     let seconds = 60;
     let hours = 24
-    if (firstDateYear > secondDateYear){
-        let timeElapsed = firstDate.getTime - secondDate.getTime();
-        let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
-        displayDaysBetween(daysElapsed);
-    } else if (secondDateYear > firstDateYear){
-        let timeElapsed = secondDate.getTime - firstDate.getTime();
-        let daysElapsed = timeElapsed/ (milliseconds * seconds * minutes * hours);
-        displayDaysBetween(daysElapsed);
-    }
+    let timeElapsed = Math.abs(secondDate.getTime() - firstDate.getTime());
+    let daysElapsed = Math.floor(timeElapsed/ (milliseconds * seconds * minutes * hours));
+    displayDaysBetween(daysElapsed);
 }
 
-function displayDaysFromToday(daysElapsed){
+function displayDaysBetween(daysElapsed){
     let daysBetween = $(".daysBetween");
     daysBetween.append(`${daysElapsed}`);
 }
