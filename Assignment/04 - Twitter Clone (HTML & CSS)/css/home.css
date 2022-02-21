@@ -10,7 +10,9 @@
         display: flex;
         flex-direction: row;
         background-color: #564592;
+        margin: -10px -10px 0 -10px;
     }
+    
     
     .imgCol{
        display: none;
@@ -31,7 +33,7 @@
         margin: auto;
     }
     
-    .logo{
+    .homePageLogo{
         display: flex;
         flex-direction: row;
         width: 155px;
@@ -39,7 +41,7 @@
         margin: auto;
     }
     
-    h1{
+    .homePageTitle{
         background-color: #EDF67D;
         border-radius: 5px;
         font-size: 40px;
@@ -47,7 +49,7 @@
         height: 76px;
     }
     
-    button {
+    .signUpBtn, .signInBtn {
         display: block;
         margin-bottom: 10px;
         background-color: white;
@@ -81,7 +83,7 @@
         font-size: 16px;
     }
     
-    a{
+    .homePageSection > a{
         text-decoration: none;
         color: black;
     }
@@ -99,15 +101,16 @@
         display: flex;
         flex-direction: row;
         background-color: #564592;
+        margin: -10px -10px 0 -10px;
     }
     
+    
     .imgCol{
-        display: none
+        display: none;
     }
     
     .homeImg{
-        display: none;
-      
+        display: none; 
      } 
     
     .homeImgTxt{
@@ -126,7 +129,7 @@
         margin: auto;
     }
     
-    .logo{
+    .homePageLogo{
         display: flex;
         flex-direction: row;
         width: 155px;
@@ -134,7 +137,7 @@
         margin: auto;
     }
     
-    h1{
+    .homePageTitle{
         background-color: #EDF67D;
         border-radius: 5px;
         font-size: 32px;
@@ -144,7 +147,7 @@
         padding: 4px;
     }
     
-    button {
+    .signInBtn, .signUpBtn {
         display: block;
         margin-bottom: 10px;
         background-color: white;
@@ -178,7 +181,7 @@
         font-size: 16px;
     }
     
-    a{
+    .homePageSection > a{
         text-decoration: none;
         color: black;
     }
@@ -196,6 +199,7 @@
         display: flex;
         flex-direction: row;
         background-color: #564592;
+        margin: -10px -10px 0 -10px;
     }
     
     .imgCol{
@@ -230,14 +234,14 @@
         padding: 20px 0 0 20px;
     }
     
-    .logo{
+    .homePageLogo{
         display: flex;
         flex-direction: row;
         width: 155px;
         height: 78px;
     }
     
-    h1{
+    .homePageTitle{
         background-color: #EDF67D;
         border-radius: 5px;
         font-size: 30px;
@@ -245,7 +249,7 @@
         height: 50px;
     }
     
-    button {
+    .signInBtn, .signUpBtn {
         display: block;
         margin-bottom: 10px;
         background-color: white;
@@ -279,7 +283,7 @@
         font-size: 16px;
     }
     
-    a{
+    .homePageSection a{
         text-decoration: none;
         color: black;
     }
@@ -287,16 +291,18 @@
 
 /* // Extra large devices (large desktops, 992px and up) */
 @media (min-width: 992px) { 
-    body { 
+    /* body { 
         display: flex;
         flex-direction: column;
         background-color: #564592;
-    }
+    } */
 
     .homePageSection{
         display: flex;
         flex-direction: row;
         background-color: #564592;
+        margin: -10px -10px 0 -10px;
+    
     }
     
     .imgCol{
@@ -309,7 +315,6 @@
     
     .homeImg{
         height: 760px;
-      
      } 
     
     .homeImgTxt{
@@ -330,14 +335,14 @@
         padding: 20px 0 0 20px;
     }
     
-    .logo{
+    .homePageLogo{
         display: flex;
         flex-direction: row;
         width: 155px;
         height: 78px;
     }
     
-    h1{
+    .homePageTitle{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -350,7 +355,7 @@
         padding: 4px;
     }
     
-    button {
+    .signInBtn, .signUpBtn {
         display: block;
         margin-bottom: 10px;
         background-color: white;
@@ -384,7 +389,7 @@
         font-size: 16px;
     }
     
-    a{
+    .homePageSection a{
         text-decoration: none;
         color: black;
     }

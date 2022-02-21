@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/signUp.css" />
+    <link rel="stylesheet" href="../css/signIn.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -15,7 +17,7 @@
     ></script>
   </head>
   <body class="main">
-    <section class="homePageSection">
+    <section class="homePageSection" hidden>
       <div class="imgCol">
         <p class="homeImgTxt" id="homeImgTxt">
           Did you hear?<br />
@@ -32,9 +34,9 @@
         <img
           src="../images/grapevine(1).png"
           alt="Grapevine logo"
-          class="logo"
+          class="homePageLogo"
         />
-        <h1>Through the grapevine</h1>
+        <h1 class="homePageTitle">Through the grapevine</h1>
         <section class="signUp">
           <h2>Join Grapevine Today</h2>
           <div class="joinSection">
@@ -51,9 +53,9 @@
       </div>
     </section>
 
-    <section class="signUpFormSection">
-      <img src="../images/grapevine(1).png" alt="Grapevine logo" />
-      <h1>Create an Account</h1>
+    <section class="signUpFormSection" hidden>
+      <img src="../images/grapevine(1).png" alt="Grapevine logo" class="signUpLogoImg"/>
+      <h1 class="signUpTitle">Create an Account</h1>
       <form action="" id="signUpForm" method="post">
         <input
           type="text"
@@ -82,8 +84,8 @@
         <input type="submit" value="Submit" />
       </form>
     </section>
-    <section class="signInFormSection">
-      <img src="../images/grapevine(1).png" alt="Grapevine logo" />
+    <section class="signInFormSection" hidden>
+      <img src="../images/grapevine(1).png" alt="Grapevine logo" class="signInLogoImg"/>
       <h1>Sign in to Grapevine</h1>
       <form action="" method="" class="signInForm">
         <input

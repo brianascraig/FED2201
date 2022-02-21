@@ -1,5 +1,5 @@
 @media (max-width: 575.98px) {
-    body{
+    .dashboardSection{
         margin: 20px 40px 10px;
         display: flex;
         flex-direction: row;
@@ -23,7 +23,7 @@
         display: none;
     }
     
-    a{
+    .dashboardSection a{
         text-decoration: none;
         color: white;
     }
@@ -42,11 +42,11 @@
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    form{
+    .dashboardSection form{
         position: relative;
         width: 300px;
     }
-    input[type="submit"]{
+    .dashboardSection input[type="submit"]{
         background-color: #CA7DF9;
         width: 80px;
         height: 24px;
@@ -103,7 +103,7 @@
 }
 
 @media (max-width: 767.98px) {
-    body{
+    .dashboardSection{
         margin: 20px 50px 10px 0;
         display: flex;
         flex-direction: row;
@@ -127,7 +127,7 @@
         display: none;
     }
     
-    a{
+    .dashboardSection a{
         text-decoration: none;
         color: white;
     }
@@ -146,11 +146,11 @@
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    form{
+    .dashboardSection form{
         position: relative;
         width: 400px;
     }
-    input[type="submit"]{
+    .dashboardSection input[type="submit"]{
         position: absolute;
         bottom: 1em;
         background-color: #CA7DF9;
@@ -209,7 +209,7 @@
 }
 
 @media (min-width: 768px) {
-    body{
+    .dashboardSection{
         display: flex;
         flex-direction: row;
         font-family: 'Roboto', sans-serif;
@@ -232,7 +232,7 @@
         display: none;
     }
     
-    a{
+    .dashboardSection a{
         text-decoration: none;
         color: white;
     }
@@ -252,11 +252,11 @@
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    form{
+    .dashboardSection form{
         position: relative;
         width: 500px;
     }
-    input[type="submit"]{
+    .dashboardSection input[type="submit"]{
         position: absolute;
         right: 1em;
         bottom: 1em;
@@ -323,7 +323,7 @@
 }
 
 @media (min-width: 992px) { 
-    body{
+    .dashboardSection{
         display: flex;
         flex-direction: row;
         font-family: 'Roboto', sans-serif;
@@ -358,7 +358,7 @@
         color: white;
     }
     
-    a{
+    .dashboardSection a{
         text-decoration: none;
         color: white;
     }
@@ -377,11 +377,11 @@
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    form{
+    .dashboardSection form{
         position: relative;
         width: 500px;
     }
-    input[type="submit"]{
+    .dashboardSection input[type="submit"]{
         position: absolute;
         right: 1em;
         bottom: 1em;
@@ -461,7 +461,7 @@
 }
 
 @media (min-width: 1366px) { 
-    body{
+    .dashboardSection{
         margin: 0 70px 0 120px;
         display: flex;
         flex-direction: row;
@@ -497,7 +497,7 @@
         color: white;
     }
     
-    a{
+    .dashboardSection a{
         text-decoration: none;
         color: white;
     }
@@ -516,11 +516,11 @@
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    form{
+    .dashboardSection form{
         position: relative;
         width: 500px;
     }
-    input[type="submit"]{
+    .dashboardSection input[type="submit"]{
         position: absolute;
         right: 1em;
         bottom: 1em;
