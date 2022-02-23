@@ -3,11 +3,13 @@ function handleApp(){
     let todoForm = $(".todoForm");
     todoForm.submit(handleSubmit);
     let allTodosFilter = $(".allTodosFilter");
-    allTodosFilter.click(updateTodoTable(allTodos));
+    allTodosFilter.click(updateTodoTable);
     let activeTodosFilter = $(".activeTodosFilter");
-    activeTodosFilter.click(updateTodoTable(incompleteTodos));
+    activeTodosFilter.click(updateTodoTable);
     let completedTodosFilter = $(".completedTodosFilter");
-    completedTodosFilter.click(updateTodoTable(completedTodos));
+    completedTodosFilter.click(filterCompletedTodos);
+    let clearCompleted = $(".clearCompleted");
+    clearCompleted.click(clearAllTodos);
 }
 
 function handleSubmit(event){
@@ -25,10 +27,12 @@ function createTodo(id, todoItem){
         "content" : todoItem,
         "complete" : false
     });
-    updateTodoTable(allTodos);
+    console.log("createTodo incompleteTodo" + incompleteTodos)
+    updateTodoTable();
 }
 
 function handleStatusUpdate(id, completionStatus){
+    console.log("handleStatusUpdate completion" + completionStatus)
     if (completionStatus == false){
         for (let i = 0; i < incompleteTodos.length; i++){
             if (incompleteTodos[i].id == id){
@@ -46,37 +50,95 @@ function handleStatusUpdate(id, completionStatus){
             }
         }
     }
-    updateTodoTable(allTodos);
+    updateTodoTable();
 }
 
 
-function updateTodoTable(filter){
+function updateTodoTable(){
+    let allTodos = incompleteTodos.concat(completedTodos);
+    console.log("updateTodoTable filter" + allTodos);
     let todoTB = document.querySelector(".todoTB");
     let sumIncompleteTodos = incompleteTodos.length;
     while (todoTB.firstChild){
         todoTB.removeChild(todoTB.firstChild);
     }
-    for (let i = 0; i < filter.length; i++){
+    for (let i = 0; i < allTodos.length; i++){
         todoTB.innerHTML += `
-        <tr id=${filter[i].id} class="updateTodoTable">
-            <td onclick="handleStatusUpdate(${filter[i].id}, ${filter[i].complete})">
-                <span class="completion-status-${filter[i].complete}"></span></td>
-            <td class="content">${filter[i].content}</td>
-        </tr>
-        <tfoot>
-            <tr>
-                <td>${sumIncompleteTodos} item(s) left</td>
-                <td>
-                    <span class="allTodosFilter">All</span>
-                    <span class="aciveTodosFilter">Active</span>
-                    <span class="completedTodosFilter">Completed</span>
-                </td>
-                <td><span class="clearCompleted">Clear Completed</span>
-            </tr>
-        </tfoot>
-        `
+        <tr id=${allTodos[i].id} class="updateTodoTable">
+            <td onclick="handleStatusUpdate(${allTodos[i].id}, ${allTodos[i].complete})">
+                <span class="completion-status-${allTodos[i].complete}"></span></td>
+            <td class="content">${allTodos[i].content}</td>
+        </tr> `
      ;
     }
+    let itemsLeft = $(".itemsLeft");
+    itemsLeft.empty();
+    itemsLeft.append(`${sumIncompleteTodos} item(s) left`);
+}
+
+function filterCompletedTodos(){
+    console.log("updateTodoTable filter" + completedTodos);
+    let todoTB = document.querySelector(".todoTB");
+    let sumIncompleteTodos = incompleteTodos.length;
+    while (todoTB.firstChild){
+        todoTB.removeChild(todoTB.firstChild);
+    }
+    for (let i = 0; i < completedTodos.length; i++){
+        todoTB.innerHTML += `
+        <tr id=${completedTodos[i].id} class="updateTodoTable">
+            <td onclick="handleStatusUpdate(${completedTodos[i].id}, ${completedTodos[i].complete})">
+                <span class="completion-status-${completedTodos[i].complete}"></span></td>
+            <td class="content">${completedTodos[i].content}</td>
+        </tr> `
+     ;
+    }
+    let itemsLeft = $(".itemsLeft");
+    itemsLeft.empty();
+    itemsLeft.append(`${sumIncompleteTodos} item(s) left`);
+}
+
+function filterIncompleteTodos(){
+    console.log("updateTodoTable filter" + incompleteTodos);
+    let todoTB = document.querySelector(".todoTB");
+    let sumIncompleteTodos = incompleteTodos.length;
+    while (todoTB.firstChild){
+        todoTB.removeChild(todoTB.firstChild);
+    }
+    for (let i = 0; i < incompleteTodos.length; i++){
+        todoTB.innerHTML += `
+        <tr id=${incompleteTodos[i].id} class="updateTodoTable">
+            <td onclick="handleStatusUpdate(${incompleteTodos[i].id}, ${incompleteTodos[i].complete})">
+                <span class="completion-status-${incompleteTodos[i].complete}"></span></td>
+            <td class="content">${incompleteTodos[i].content}</td>
+        </tr> `
+     ;
+    }
+    let itemsLeft = $(".itemsLeft");
+    itemsLeft.empty();
+    itemsLeft.append(`${sumIncompleteTodos} item(s) left`);
+}
+
+function clearAllTodos(){
+    completedTodos.splice(0, completedTodos.length)
+    let allTodos = incompleteTodos.concat(completedTodos);
+    console.log("updateTodoTable filter" + allTodos);
+    let todoTB = document.querySelector(".todoTB");
+    let sumIncompleteTodos = incompleteTodos.length;
+    while (todoTB.firstChild){
+        todoTB.removeChild(todoTB.firstChild);
+    }
+    for (let i = 0; i < allTodos.length; i++){
+        todoTB.innerHTML += `
+        <tr id=${allTodos[i].id} class="updateTodoTable">
+            <td onclick="handleStatusUpdate(${allTodos[i].id}, ${allTodos[i].complete})">
+                <span class="completion-status-${allTodos[i].complete}"></span></td>
+            <td class="content">${allTodos[i].content}</td>
+        </tr> `
+     ;
+    }
+    let itemsLeft = $(".itemsLeft");
+    itemsLeft.empty();
+    itemsLeft.append(`${sumIncompleteTodos} item(s) left`);
 }
 
 handleApp();

@@ -14,4 +14,3 @@ let completedTodos = [
     }
 ]
 
-let allTodos = incompleteTodos.concat(completedTodos);

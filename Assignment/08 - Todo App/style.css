@@ -1,3 +1,27 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.light-header{
+    background-image: url("images/bg-desktop-light.jpg");
+    height: 400px;
+    min-width: 1440px;
+}
+
+.dark-header{
+    background-image: url("images/bg-desktop-dark.jpg");
+    min-height: 400px;
+    min-width: 1440px;
+}
+
 .attribution { 
     font-size: 11px; 
     text-align: center; 
@@ -6,19 +30,23 @@
     color: hsl(228, 45%, 44%); 
 }
 
-/* input[type="submit"]{
+input[type="submit"]{
     display: none;
-} */
+}
 
 .completion-status-true{
     border: 1px solid blue;
-    width: 10px; 
+    width: 15px; 
+    height: 15px;
+    display: inline-block;
     border-radius: 5px;
-    background-image: url("images/icon-check.svg");
+    background-image: url("images/checked.png");
 }
 
 .completion-status-false{
     border: solid 1px blue;
-    width: 10px; 
+    width: 15px; 
+    height: 15px;
+    display: inline-block;
     border-radius: 5px;
 }
