@@ -40,6 +40,7 @@ function handleStatusUpdate(id, completionStatus){
                 completedTodos.push(incompleteTodos[i]);
                 incompleteTodos.splice(i, 1);
             }
+            updateTodoTable();
         }
     } else if (completionStatus == true){
         for (let i = 0; i < completedTodos.length; i++){
@@ -49,8 +50,8 @@ function handleStatusUpdate(id, completionStatus){
                 completedTodos.splice(i, 1);
             }
         }
-    }
-    updateTodoTable();
+        updateTodoTable();
+    }  
 }
 
 
@@ -107,8 +108,9 @@ function filterIncompleteTodos(){
     for (let i = 0; i < incompleteTodos.length; i++){
         todoTB.innerHTML += `
         <tr id=${incompleteTodos[i].id} class="updateTodoTable">
-            <td onclick="handleStatusUpdate(${incompleteTodos[i].id}, ${incompleteTodos[i].complete})">
-                <span class="completion-status-${incompleteTodos[i].complete}"></span></td>
+            <td>
+                <span class="completion-status-${incompleteTodos[i].complete}" 
+                    onclick="handleStatusUpdate(${incompleteTodos[i].id}, ${incompleteTodos[i].complete})"></span></td>
             <td class="content">${incompleteTodos[i].content}</td>
         </tr> `
      ;

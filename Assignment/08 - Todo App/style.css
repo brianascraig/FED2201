@@ -10,13 +10,13 @@ body {
 
 
 
-.light-header{
+.lightHeader{
     background-image: url("images/bg-desktop-light.jpg");
     height: 400px;
     min-width: 1440px;
 }
 
-.dark-header{
+.darkHeader{
     background-image: url("images/bg-desktop-dark.jpg");
     min-height: 400px;
     min-width: 1440px;
@@ -39,7 +39,7 @@ input[type="submit"]{
     width: 15px; 
     height: 15px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 7px;
     background-image: url("images/checked.png");
 }
 
@@ -48,5 +48,5 @@ input[type="submit"]{
     width: 15px; 
     height: 15px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 7px;
 }
