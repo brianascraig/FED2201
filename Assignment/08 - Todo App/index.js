@@ -10,6 +10,12 @@ function handleApp(){
     completedTodosFilter.click(filterCompletedTodos);
     let clearCompleted = $(".clearCompleted");
     clearCompleted.click(clearAllTodos);
+    let themeSelect = $(".themeSelect");
+    themeSelect.click(handleThemeChange)
+}
+
+function handleThemeChange(){
+    let allBgLight = document.querySelectorAll()
 }
 
 function handleSubmit(event){

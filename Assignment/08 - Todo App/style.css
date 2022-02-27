@@ -10,13 +10,13 @@ body {
 
 
 
-.lightHeader{
+.header-bgLight{
     background-image: url("images/bg-desktop-light.jpg");
     height: 400px;
     min-width: 1440px;
 }
 
-.darkHeader{
+.header-bgDark{
     background-image: url("images/bg-desktop-dark.jpg");
     min-height: 400px;
     min-width: 1440px;
