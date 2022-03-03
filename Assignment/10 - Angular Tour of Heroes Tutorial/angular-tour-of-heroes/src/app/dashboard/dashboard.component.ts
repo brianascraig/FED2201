@@ -3,11 +3,14 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { VillainService } from '../villain.service';
 import { Villain } from '../villain';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
@@ -28,5 +31,9 @@ export class DashboardComponent implements OnInit {
   getVillains(): void {
     this.villainService.getVillains()
       .subscribe(villains => this.villains = villains.slice(1, 5));
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.heroes, event.previousIndex, event.currentIndex);
   }
 }

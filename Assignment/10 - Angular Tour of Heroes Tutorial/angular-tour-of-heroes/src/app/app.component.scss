@@ -19,3 +19,12 @@ h1 {
   nav a.active {
     background-color: black;
   }
+
+  @mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+  }
+
+  $villainFont : 'Creepster', cursive;

@@ -48,3 +48,23 @@ h2 {
   a:hover {
     background-color: #000;
   }
+  $villainFont : 'Creepster', cursive;
+  .villains-menu {
+    padding: 0;
+    margin: auto;
+    max-width: 1000px;
+    font-family: $villainFont;
+  
+    /* flexbox */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    a:hover {
+      background-color: red;
+      color: #000;
+    }
+  }
