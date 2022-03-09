@@ -2,34 +2,33 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TopMenuComponent } from './top-menu/top-menu.component';
+import { TopMenuComponent } from './menu/top-menu/top-menu.component';
 import { HeaderComponent } from './header/header.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
-import { HomeComponent } from './home/home.component';
+import { MainMenuComponent } from './menu/main-menu/main-menu.component';
+import { HomeComponent } from './pages/home/home.component';
 import { SalesCategoriesDisplayComponent } from './sales-categories-display/sales-categories-display.component';
 import { FeaturedSectionComponent } from './featured-section/featured-section.component';
 import { ShopCategoriesGalleryComponent } from './shop-categories-gallery/shop-categories-gallery.component';
 import { FooterComponent } from './footer/footer.component';
-import { FooterMenuComponent } from './footer-menu/footer-menu.component';
+import { FooterMenuComponent } from './menu/footer-menu/footer-menu.component';
 import { AcceptedPayMethodsComponent } from './accepted-pay-methods/accepted-pay-methods.component';
-import { ShopMainComponent } from './shop-main/shop-main.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarBrowseComponent } from './sidebar-browse/sidebar-browse.component';
-import { SidebarFilterComponent } from './sidebar-filter/sidebar-filter.component';
-import { SingleProductPageComponent } from './single-product-page/single-product-page.component';
-import { ProductImageGalleryComponent } from './product-image-gallery/product-image-gallery.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductDescriptionComponent } from './product-description/product-description.component';
-import { ProductOptionsComponent } from './product-options/product-options.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { CartProductsComponent } from './cart-products/cart-products.component';
-import { CartTotalsComponent } from './cart-totals/cart-totals.component';
-import { CheckoutDetailsComponent } from './checkout-details/checkout-details.component';
-import { BilliComponent } from './billi/billi.component';
-import { BillingDetailsComponent } from './billing-details/billing-details.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { OrderCompleteComponent } from './order-complete/order-complete.component';
-import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { ShopMainComponent } from './pages/shop-main/shop-main.component';
+import { SidebarComponent } from './sidebars/sidebar/sidebar.component';
+import { SidebarBrowseComponent } from './sidebars/sidebar-browse/sidebar-browse.component';
+import { SidebarFilterComponent } from './sidebars/sidebar-filter/sidebar-filter.component';
+import { SingleProductPageComponent } from './pages/single-product-page/single-product-page.component';
+import { ProductImageGalleryComponent } from './product/product-image-gallery/product-image-gallery.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductDescriptionComponent } from './product/product-description/product-description.component';
+import { ProductOptionsComponent } from './product/product-options/product-options.component';
+import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
+import { CartProductsComponent } from './cart/cart-products/cart-products.component';
+import { CartTotalsComponent } from './cart/cart-totals/cart-totals.component';
+import { CheckoutDetailsComponent } from './cart/checkout-details/checkout-details.component';
+import { BillingDetailsComponent } from './order/billing-details/billing-details.component';
+import { OrderDetailComponent } from './order/order-detail/order-detail.component';
+import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
+import { OrderConfirmationComponent } from './order/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     CartProductsComponent,
     CartTotalsComponent,
     CheckoutDetailsComponent,
-    BilliComponent,
     BillingDetailsComponent,
     OrderDetailComponent,
     OrderCompleteComponent,
