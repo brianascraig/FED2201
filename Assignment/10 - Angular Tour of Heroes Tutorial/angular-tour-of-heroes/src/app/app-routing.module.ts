@@ -14,8 +14,5 @@ const routes: Routes = [
   { path: 'villains', component: VillainsComponent}
 ];
 
-@NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
-})
+
 export class AppRoutingModule {}

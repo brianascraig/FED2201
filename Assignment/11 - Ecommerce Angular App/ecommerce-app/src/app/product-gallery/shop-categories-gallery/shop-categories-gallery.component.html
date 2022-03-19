@@ -1,0 +1,15 @@
+<section>
+    <div class="container topContainer overflow-hidden">
+      <div class="row">
+        <div class="col-md-2 imgLarge galleryBox" *ngFor="let item of galleryItems">
+          <img src="{{item.image}}" alt="{{item.alt}}">
+          <div class="titleContainer">
+              <h2>{{item.title}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   
+  
+    

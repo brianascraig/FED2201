@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { Product } from '../product';
+import { Product } from './product';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  createAndStore(title: string, content: string) {
-    const productData: Product = { title: title, content: content };
+  createProduct(id: string, name: string, color: string, img: string,
+    inventory: number, price: number, type: string) {
+    const productData: Product = { 
+      id: id,
+      name: name,
+      color: color,
+      img: img,
+      inventory: inventory,
+      price: price,
+      type: type
+    };
     this.http
       .post<{ name: string }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+        'https://tiny-threads-db-default-rtdb.firebaseio.com/products.json',
         productData
       )
       .subscribe(
@@ -30,7 +38,7 @@ export class ProductService {
   fetchProducts() {
     return this.http
       .get<{ [key: string]: Product }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+        'https://tiny-threads-db-default-rtdb.firebaseio.com/products.json'
       )
       .pipe(
         map(responseData => {
@@ -40,18 +48,42 @@ export class ProductService {
               productsArray.push({ ...responseData[key], id: key });
             }
           }
+          console.log("fetch products array: " + productsArray)
           return productsArray;
-        }),
-        catchError(errorRes => {
-          // Send to analytics server
-          return throwError(errorRes);
         })
+    
       );
   }
 
-  deletePosts() {
+  fetchProductById(id: string) {
+    return this.http
+      .get<{ [key: string]: Product }>(
+        'https://tiny-threads-db-default-rtdb.firebaseio.com/products.json'
+      )
+      .pipe(
+        map(responseData => {
+          const productsArray: Product[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              productsArray.push({ ...responseData[key], id: key });
+            }
+          }
+          console.log("fetch products array: " + productsArray)
+          return productsArray;
+        })
+    
+      );
+  }
+
+  deleteProducts() {
     return this.http.delete(
-      'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+      'https://tiny-threads-db-default-rtdb.firebaseio.com/products.json'
+    );
+  }
+
+  deleteProductById(id: string) {
+    return this.http.delete(
+      `https://tiny-threads-db-default-rtdb.firebaseio.com/products/${id}.json`
     );
   }
 }

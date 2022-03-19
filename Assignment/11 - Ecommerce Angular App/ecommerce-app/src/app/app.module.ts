@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './menu/top-menu/top-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SalesCategoriesDisplayComponent } from './sales-categories-display/sales-categories-display.component';
+import { SalesCategoriesDisplayComponent } from './product-gallery/sales-categories-display/sales-categories-display.component';
 import { FeaturedSectionComponent } from './featured-section/featured-section.component';
-import { ShopCategoriesGalleryComponent } from './shop-categories-gallery/shop-categories-gallery.component';
+import { ShopCategoriesGalleryComponent } from './product-gallery/shop-categories-gallery/shop-categories-gallery.component';
 import { FooterComponent } from './footer/footer.component';
 import { FooterMenuComponent } from './menu/footer-menu/footer-menu.component';
 import { AcceptedPayMethodsComponent } from './accepted-pay-methods/accepted-pay-methods.component';
@@ -29,6 +29,8 @@ import { BillingDetailsComponent } from './order/billing-details/billing-details
 import { OrderDetailComponent } from './order/order-detail/order-detail.component';
 import { OrderCompleteComponent } from './order/order-complete/order-complete.component';
 import { OrderConfirmationComponent } from './order/order-confirmation/order-confirmation.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,10 @@ import { OrderConfirmationComponent } from './order/order-confirmation/order-con
     OrderConfirmationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
