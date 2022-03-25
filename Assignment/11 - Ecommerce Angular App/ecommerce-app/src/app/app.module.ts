@@ -15,7 +15,6 @@ import { AcceptedPayMethodsComponent } from './accepted-pay-methods/accepted-pay
 import { ShopMainComponent } from './pages/shop-main/shop-main.component';
 import { SidebarComponent } from './sidebars/sidebar/sidebar.component';
 import { SidebarBrowseComponent } from './sidebars/sidebar-browse/sidebar-browse.component';
-import { SidebarFilterComponent } from './sidebars/sidebar-filter/sidebar-filter.component';
 import { SingleProductPageComponent } from './pages/single-product-page/single-product-page.component';
 import { ProductImageGalleryComponent } from './product/product-image-gallery/product-image-gallery.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -48,7 +47,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ShopMainComponent,
     SidebarComponent,
     SidebarBrowseComponent,
-    SidebarFilterComponent,
     SingleProductPageComponent,
     ProductImageGalleryComponent,
     ProductDetailComponent,

@@ -1,15 +1,31 @@
-<app-header></app-header>
-<section>
+<!-- <app-header></app-header> -->
+<div class="row mainContainer">
+  <div class="col-md-3">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-md-9 col-xs-12" >
     <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <ul class="list-group">
-            <li class="list-group-item" *ngFor="let product of Products">
-              <h3>{{ product.name }}</h3>
-              <img [src]="product.img">
-            </li>
-          </ul>
+      <div class="card productContainer col-md-3 col-xs-12" *ngFor="let product of Products">
+        <a [routerLink]="['/product',product.id]">
+          <img
+            src="{{ product.img }}"
+            class="card-img-top"
+            alt="{{ product.alt }}"
+          />
+      </a>
+        <div class="card-body">
+          <a routerLink="/product/:{{product.id}}">
+            <h5 class="card-title">{{ product.name }}</h5>
+          </a>
+          <p class="card-text priceContainer col-md-6">{{ product.price }}</p>
+          <div class="iconContainer">
+            <a routerLink="#" class="btn btn-primary">
+              <i class="far fa-heart"></i>
+            </a>
+          </div>
         </div>
-      </div> 
-</section>
-<app-sidebar></app-sidebar>
-<app-footer></app-footer>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

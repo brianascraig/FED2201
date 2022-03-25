@@ -3,4 +3,5 @@ export interface GalleryItem {
     title: string;
     image: string;
     alt: string;
+    link: string;
 }

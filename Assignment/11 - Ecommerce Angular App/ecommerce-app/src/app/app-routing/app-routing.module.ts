@@ -7,9 +7,9 @@ import { ShopMainComponent } from '../pages/shop-main/shop-main.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'product/:id', component: SingleProductPageComponent },
+  { path: 'product/id', component: SingleProductPageComponent },
   { path: 'browse', component: ShopMainComponent },
-  { path: 'browse/top-dresses', component: ShopMainComponent },
+  { path: 'browse/tops-dresses', component: ShopMainComponent },
   { path: 'browse/sets', component: ShopMainComponent },
   { path: 'browse/shoes', component: ShopMainComponent },
   { path: 'browse/outerwear', component: ShopMainComponent },

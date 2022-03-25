@@ -2,9 +2,11 @@
     <div class="container topContainer overflow-hidden">
       <div class="row">
         <div class="col-md-2 imgLarge galleryBox" *ngFor="let item of galleryItems">
-          <img src="{{item.image}}" alt="{{item.alt}}">
+          <a routerLink="{{item.link}}">
+            <img src="{{item.image}}" alt="{{item.alt}}">
+          </a>
           <div class="titleContainer">
-              <h2>{{item.title}}</h2>
+            <h2>{{item.title}}</h2>
           </div>
         </div>
       </div>

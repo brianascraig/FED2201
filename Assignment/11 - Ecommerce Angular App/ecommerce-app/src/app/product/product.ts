@@ -6,4 +6,5 @@ export interface Product {
     inventory: number;
     price: number;
     type: string;
+    alt: string;
 }
