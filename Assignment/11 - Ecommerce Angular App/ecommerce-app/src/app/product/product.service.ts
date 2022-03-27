@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { Product } from './product';
-import { stringify } from 'querystring';
+// import { stringify } from 'querystring';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -17,7 +17,12 @@ export class ProductService {
     inventory: number,
     price: number,
     type: string,
-    alt: string
+    alt: string,
+    description: string,
+    care: string,
+    detail: string,
+    sizes: string,
+    returns: string
   ) {
     const productData: Product = {
       id: id,
@@ -28,6 +33,11 @@ export class ProductService {
       price: price,
       type: type,
       alt: alt,
+      description: description,
+      care: care,
+      detail: detail,
+      sizes: sizes,
+      returns: returns
     };
     this.http
       .post<{ name: string }>(

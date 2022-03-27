@@ -21,13 +21,9 @@ sub: Subscription | undefined;
     private activatedRoute: ActivatedRoute, private router: Router) {}
     
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log("inside pimg gallery" + this.id)
 
-    this.sub=this.activatedRoute.paramMap.subscribe(params => { 
-      console.log(params);
-       this.id = params.get('id'); 
-       let Products=this.productService.fetchProducts();
-      //  this.product=Products.find<product>(p => p.id==this.id);    
-   });
 
     this.productService.fetchProducts().subscribe(
       products => {
@@ -36,10 +32,10 @@ sub: Subscription | undefined;
     );
   }
 
-  onFetchProductsByCategory(category: string){
-    this.productService.fetchProducts().subscribe(
+  onFetchProductsByType(type: string){
+    this.productService.fetchProductsByType(type).subscribe(
       products => {
-        this.Products = products.filter(product => product.type = category);
+        this.Products = products;
       }
     );
   }

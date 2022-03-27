@@ -1,1 +1,5 @@
-<p>product-detail works!</p>
+<div *ngFor="let product of Products">
+   <h2>{{product.name}}</h2> 
+   <p>{{product.price}}</p>
+   <p>{{product.detail}}</p>
+</div>

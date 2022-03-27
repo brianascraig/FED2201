@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-product-page',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-product-page.component.css']
 })
 export class SingleProductPageComponent implements OnInit {
+  id: any;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+  
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.id)
   }
 
 }

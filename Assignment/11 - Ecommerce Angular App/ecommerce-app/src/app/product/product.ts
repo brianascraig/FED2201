@@ -7,4 +7,9 @@ export interface Product {
     price: number;
     type: string;
     alt: string;
+    description: string;
+    care: string;
+    detail: string;
+    sizes: string;
+    returns: string;
 }
