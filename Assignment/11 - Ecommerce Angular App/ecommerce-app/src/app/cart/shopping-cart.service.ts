@@ -8,20 +8,21 @@ import { ShoppingCartItems } from './shopping-cart-items';
 export class ShoppingCartService {
 
   constructor() { }
-  addShoppingCartItem(
+  createShoppingCartItem(
     quantity: number,
-    productID: string,
-    img: string,
-    price: string,
-    priceTotal: string
+    productID: string
   ) {
     const shoppingCartItemData: ShoppingCartItem = {
       quantity: quantity,
-      productID: productID,
-      img: img,
-      price: price,
-      priceTotal: priceTotal
+      productID: productID
     };
     ShoppingCartItems.push(shoppingCartItemData)
   }
+
+  count: number[] = [];
+
+  addItem(count: number) {
+    this.count.push(count);
+  }
+
 }
