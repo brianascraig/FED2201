@@ -1,7 +1,15 @@
-.featuresContainer, .col{
-    height: 200px;
+.featuresContainer, .featuresCol, .featuresImg{
+    height: 300px;
 }
 
-img {
-    height:90%;
+.featuresContainer{
+    margin-bottom: 15px;
 }
+.featuresImg {
+    width: 98%;
+    /* margin: 2px; */
+}
+
+/* img {
+    height:90%;
+} */

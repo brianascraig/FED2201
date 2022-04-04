@@ -1,6 +1,18 @@
-.main{
+.mainCol{
     background-color: var(--color_blue);
-    height: 100vh;
+    min-height: 800;
     padding: 20px;
+    text-align: center;
+}
 
+.startGameContainer{
+    background-color: var(--color_blue);
+    min-height: 800;
+
+}
+
+.scenarioBtn{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 20px;
 }

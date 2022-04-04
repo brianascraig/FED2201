@@ -1,4 +1,10 @@
 .bannerContainer{
-    background-color: var(--color_blue);
-    height: 200px;
+    height: 230px;
+    display: flex;
+    justify-content: left;
+    background-image: url('../../assets/images/the-sims-4-section-background-desktop-01-ps4-en-28oct19.jpg');
+    max-width: 100%;
 }
+/* .jumbotronImg{
+
+} */

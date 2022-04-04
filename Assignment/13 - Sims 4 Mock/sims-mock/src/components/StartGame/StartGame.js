@@ -6,7 +6,7 @@ import {BsThreeDots, BsImages} from 'react-icons/bs';
 export default function startGame(props) {
     return (
         <Row className="StartGame" id="startGame">
-           <Col className='main'>
+           <Col className='mainCol'>
                 <div>
                     <img src={props.logoImg}/>
                 </div>
@@ -18,7 +18,7 @@ export default function startGame(props) {
                 </div>
                 <Row>
                     <Col>
-                        <button type='button' className='scenarioBtn'><BsImages /></button> 
+                        <button type='button' className='galleryBtn'><BsImages /></button> 
                         <p>Gallery</p>
                     </Col>
                     <Col>
