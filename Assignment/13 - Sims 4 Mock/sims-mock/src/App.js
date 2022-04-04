@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './theme/theme.css';
 import {
   useLocation,
   useNavigate,
@@ -29,6 +30,7 @@ class App extends Component {
                 <Route path='/packs' element={<Packs />} />
                 <Route path='/kits' element={<Kits />} />
                 <Route path='/my-account' element={<Account />} />
+                <Route path='/home' element={<Home />} />
                 <Route path='/' element={<Home />} />
               </Routes>
           </div>
