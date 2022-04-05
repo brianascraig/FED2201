@@ -1,3 +1,28 @@
 .promosContainer{
-    height: 50px;
+    height: 120px;
+}
+
+.promoSectionTitle{
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color_dark_gray);
+    font-stretch: wider;
+    margin-bottom: -5px;
+}
+
+.promoTitle{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color_blue);
+    font-stretch: wider;
+}
+
+.promoTitle:hover{
+    color: var(--color_dark_blue);
+    font-size: 19px;
+}
+
+.PromoAds{
+    background-image: url('../../assets/images/promobackground.png');
+    /* background-size: cover; */
 }

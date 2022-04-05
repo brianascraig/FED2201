@@ -1,3 +1,14 @@
 .Header{
     height: 50px;
 }
+
+.linkText{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color_dark_blue);
+}
+
+.linkText:hover{
+    font-size: 17px;
+}

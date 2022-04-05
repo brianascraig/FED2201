@@ -32,6 +32,8 @@ export default function home() {
                         className="promoAds"
                         promo1={upgradePromo}
                         promo2={packsPromo}
+                        promoText1="Game update available"
+                        promoText2="New Expansion Packs"
                     />
                 </Col>
                 <Col sm={3} className="startGameContainer">
