@@ -21,8 +21,14 @@ export default function home() {
                     <Header className="header"/>  
                     <Features 
                         className="features" 
-                        featuredImg1={simsmansion}
-                        featuredImg2={simsyacht}
+                        cardImg1Src={simsmansion}
+                        cardImg2Src={simsyacht}
+                        card1Title="INDUSTRIAL MANSION STYLE"
+                        card1Text="Make a glass-walled pool."
+                        card1Btn="BUY NOW"
+                        card2Title="YACHT STYLE"
+                        card2Text="Surround your home with water for a yacht theme."
+                        card2Btn="CHECK IT OUT"
                     />
                     <Jumbotron
                         className="jumbotron"

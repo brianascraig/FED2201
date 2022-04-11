@@ -8,7 +8,7 @@ export default function jumbotron(props) {
            <Row className='bannerContainer'>
                <Col>
                     <div>
-                        <img src={props.bannerImg}/>
+                        <img className="jumbotronImg" src={props.bannerImg}/>
                     </div>
                </Col>
            </Row>

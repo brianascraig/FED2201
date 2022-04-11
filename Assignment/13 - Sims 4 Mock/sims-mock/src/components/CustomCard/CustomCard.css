@@ -1,0 +1,43 @@
+.customCardContainer, .cardImg{
+    height: 300px;
+    width: 540px;
+}
+
+.customCardContainer{
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+.customCardContent{
+    position: absolute;
+    height: 80px;
+    background-color: black;
+    opacity: 0.7;
+    bottom: 0px;
+    color: white;
+    text-align: justify;
+    width: 100%;
+    line-height: 3px;
+    padding: 5px 10px;
+}
+
+.cardBtn{
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 0;
+    background-color: inherit;
+    font-size: 10px;
+    color: white;
+    font-weight: 300;
+}
+
+.cardText{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.cardTitle{
+    font-size: 14px;
+    font-weight: bold;
+}
